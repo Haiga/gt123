@@ -1,0 +1,176 @@
+IP externo amelia1: ssh terralab@200.239.139.139
+
+IP interno amelia1: ssh terralab@100.10.10.101
+IP interno amelia2: ssh terralab@100.10.10.102
+IP interno amelia3: ssh terralab@100.10.10.103
+IP interno amelia4: ssh terralab@100.10.10.104
+
+Para fazer transferência de arquivos entre elas é melhor usar os ips internos.
+
+usuario: terralab
+'palavra': Poe7_na_Amelia_qEla_Guenta69
+
+_aduk3n_123_aduk3n_
+
+scp -r terralab@200.239.139.139:/home/terralab/out.zip "D:\Colecoes\BD\out.zip"
+meujogo1./
+
+/home/terralab/reinaldo/mof/ML20M/constituent
+/home/terralab/reinaldo/mof/ML20M/features
+
+scp -r terralab@200.239.139.139:/home/terralab/risk-data/Amazon/Results/eval_con_sample70-5 .
+
+
+scp -r terralab@200.239.139.139:/home/terralab/risk-data/Amazon/Results/eval_con_sample70-5-s "D:\Colecoes\experimento-ga-risk\Amazon\Predictions"
+scp -r terralab@200.239.139.139:/home/terralab/risk-data/ML20M/Results/eval_con_sample70-5-s "D:\Colecoes\experimento-ga-risk\ML20M\Predictions"
+scp terralab@200.239.139.139:/home/terralab/risk-data/Amazon/Results/Analisys/ranking_1_1_sample70_5-FINAL-SO-Risk_Constituentes_10.tsv "D:\Colecoes\experimento-ga-risk"
+scp terralab@200.239.139.139:/home/terralab/risk-data/ML20M/Results/Analisys/ranking_1_1_sample70_5-FINAL-SO-Risk_Constituentes_10.tsv "D:\Colecoes\experimento-ga-risk"
+
+
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/exp1 "D:\Colecoes\experimento-ga-risk"
+scp -r terralab@100.10.10.103:/home/terralab/reinaldo/mof/ML20M/constituent/sample70 .
+
+
+
+scp -r "D:\Colecoes\experimento-ga-risk\ML20M\Predictions\sample70-5" terralab@200.239.139.139:/home/terralab/risk-data/ML20M/Predictions
+scp -r "D:\Colecoes\experimento-ga-risk\Amazon\out" terralab@200.239.139.139:/home/terralab/risk-data/Amazon/
+scp -r /home/pos/silvapedro/temp/run terralab@200.239.139.139:/home/terralab/risk-data/
+
+
+
+
+mkdir ML20M
+mkdir Amazon
+
+scp -r terralab@100.10.10.102:/home/terralab/reinaldo/mof/run .
+scp -r terralab@100.10.10.103:/home/terralab/reinaldo/mof/ML20M/BD .
+scp -r terralab@100.10.10.103:/home/terralab/reinaldo/mof/ML20M/features .
+scp -r terralab@100.10.10.102:/home/terralab/reinaldo/mof/Amazon/BD .
+scp -r terralab@100.10.10.102:/home/terralab/reinaldo/mof/Amazon/features .
+
+scp -r terralab@200.239.139.139:/home/terralab/temp-features .
+scp -r terralab@200.239.139.139:/home/terralab/temp-features/features/tuning70 .
+
+nohup scp -r terralab@200.239.139.139:/home/terralab/temp-features . > download.log &
+
+https://docs.google.com/spreadsheets/d/1Yp62YZFHW1VAuJ60JG8fKlDNdTKdql1F60jPxohy8es/edit#gid=1145956191
+https://thehelpfuldba.com/index.php/2020/04/15/running-an-scp-in-background-while-providing-a-password-at-the-command-prompt/
+
+
+tuningMO
+nohup ./run/mo/execMO.sh ML20M 1 1 70 0.8 20 1 0 0 1 120 5 >> ML20M/out/execMO-1-1-70-5.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 1 1 70 0.8 20 1 0 0 1 120 5 >> Amazon/out/execMO-1-1-70-5.out 2>&1&
+
+tuningSO
+nohup ./run/mo/execMO.sh ML20M 2 2 70 0.8 20 1 0 0 1 120 5 >> ML20M/out/execMO-2-2-70-5.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 2 2 70 0.8 20 1 0 0 1 120 5 >> Amazon/out/execMO-2-2-70-5.out 2>&1&
+
+
+tuningEvaluation
+nohup ./run/mo/execMO.sh ML20M 3 3 70 0.8 20 1 0 0 1 110 5 >> ML20M/out/execMO-3-3-70-5.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 3 3 70 0.8 20 1 0 0 1 110 5 >> Amazon/out/execMO-3-3-70-5.out 2>&1&
+
+Tuned MO - R1
+nohup ./run/mo/execMO.sh ML20M 4 4 70 0.8 10 1 1 1 2 55 5 >> ML20M/out/execMO-4-4-70-5-1_1.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 4 4 70 0.8 10 1 1 1 2 55 5 >> Amazon/out/execMO-4-4-70-5-1_1.out 2>&1&
+
+Tuned SO - R1
+nohup ./run/mo/execMO.sh ML20M 5 5 70 0.8 10 1 1 1 2 55 5 >> ML20M/out/execMO-5-5-70-5-1_1.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 5 5 70 0.8 10 1 1 1 2 55 5 >> Amazon/out/execMO-5-5-70-5-1_1.out 2>&1&
+
+Tomada de decisão - R1
+nohup ./run/mo/execMO.sh ML20M 6 6 70 0.8 1 1 1 1 2 50 5 >> ML20M/out/execMO-6-6-70-5-1_1.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 6 6 70 0.8 1 1 1 1 2 50 5 >> Amazon/out/execMO-6-6-70-5-1_1.out 2>&1&
+
+Tomada de decisão - IND - R1
+nohup ./run/mo/execMO.sh ML20M 16 16 70 0.8 1 10 1 1 2 55 5 >> ML20M/out/execMO-16-16-70-5-1_1.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 16 16 70 0.8 1 10 1 1 2 55 5 >> Amazon/out/execMO-16-16-70-5-1_1.out 2>&1&
+
+Predições - R1
+nohup ./run/mo/execMO.sh ML20M 7 7 70 0.8 1 1 1 1 20 50 5 >> ML20M/out/execMO-7-7-70-5-1_1.out 2>&1&
+nohup ./run/mo/execMO.sh Amazon 7 7 70 0.8 1 1 1 1 20 50 5 >> Amazon/out/execMO-7-7-70-5-1_1.out 2>&1&
+
+#renomear o /reinaldo/mof/ML20M/Predictions/sample70-5/R1
+reinaldo/mof/ML20M/Predictions/temp/R1 da amelia1 ###
+#COLOCAR o amelia3 /reinaldo/mof/ML20M/constituent/sample70 no
+/reinaldo/mof/ML20M/Predictions/sample70-5/R1 da amelia1########
+Ordenação das Predições MO - N10
+nohup ./run/eval/execEval.sh ML20M 1 1 70 0.8 10 1 1 1 1 1 5 >> ML20M/out/execEval-1-1-70-5.out 2>&1&
+nohup ./run/eval/execEval.sh Amazon 1 1 70 0.8 10 1 1 1 1 1 5 >> Amazon/out/execEval-1-1-70-5.out 2>&1&
+
+Avaliação das Predições - N10
+nohup ./run/eval/execEval.sh ML20M 2 2 70 0.8 10 1 1 2 6 50 5 >> ML20M/out/execEval-2-2-70-5.out 2>&1&
+nohup ./run/eval/execEval.sh Amazon 2 2 70 0.8 10 1 1 2 6 50 5 >> Amazon/out/execEval-2-2-70-5.out 2>&1&
+###roda até aqui
+****roda a partir do ponto x do aqruivo
+
+Ranqueando soluções - N10
+nohup ./run/eval/execEval.sh ML20M 3 3 70 0.8 10 1 1 20 6 50 5 >> ML20M/out/execEval-3-3-70-5.out 2>&1&
+nohup ./run/eval/execEval.sh Amazon 3 3 70 0.8 10 1 1 20 6 50 5 >> Amazon/out/execEval-3-3-70-5.out 2>&1&
+
+PRÓXIMOS
+https://docs.google.com/spreadsheets/d/1Yp62YZFHW1VAuJ60JG8fKlDNdTKdql1F60jPxohy8es/edit#gid=1145956191
+
+
+
+
+
+
+
+
+lbduser@150.164.2.43's password:
+web10k-norm.zip                                                                                                                  100%  654MB   1.1MB/s   09:43
+test.txt                                                                                                                         100%  266MB   1.1MB/s   03:57
+vali.txt                                                                                                                         100%  260MB   1.1MB/s   03:52
+train.txt                                                                                                                         95%  762MB   1.1MB/s   00:32 ETA
+train.txt                                                                                                                        100%  799MB   1.1MB/s   11:52
+test.txt                                                                                                                         100%  268MB   1.1MB/s   03:58
+vali.txt                                                                                                                         100%  266MB   1.1MB/s   03:57
+train.txt                                                                                                                        100%  792MB   1.1MB/s   11:46
+test.txt                                                                                                                         100%  264MB   1.1MB/s   03:55
+vali.txt                                                                                                                         100%  268MB   1.1MB/s   03:58
+train.txt                                                                                                                        100%  794MB   1.1MB/s   11:48
+def-web10k.zip                                                                                                                   100% 1177MB   1.1MB/s   17:29
+test.txt                                                                                                                         100%  268MB   1.1MB/s   03:58
+vali.txt                                                                                                                          64%  169MB   1.1MB/s   01:24 ETA
+
+vali.txt                                                                                                                         100%  264MB   1.1MB/s   03:55
+train.txt                                                                                                                        100%  794MB   1.1MB/s   11:48
+test.txt                                                                                                                         100%  260MB   1.1MB/s   03:52
+vali.txt                                                                                                                         100%  268MB   1.1MB/s   03:58
+train.txt                                                                                                                        100%  798MB   1.1MB/s   11:51
+process.log                                                                                                                      100%    0     0.0KB/s   00:00
+HR-all.features                                                                                                                  100%  217    10.6KB/s   00:00
+STREAM-all.skl                                                                                                                   100% 1396MB   1.1MB/s   20:44
+keys.csv                                                                                                                         100%   36MB   1.1MB/s   00:32
+vali-keys.csv                                                                                                                    100% 7481KB   1.1MB/s   00:06
+test-keys.csv                                                                                                                    100% 7422KB   1.1MB/s   00:06
+Norm.test.txt                                                                                                                    100% 1357MB   1.1MB/s   20:10
+Norm.test.txt                                                                                                                    100%  255MB   1.1MB/s   03:47
+Norm.train.txt                                                                                                                   100%  751MB   1.1MB/s   11:09
+Norm.vali.txt                                                                                                                    100%  251MB   1.1MB/s   03:44
+Norm.testfull.txt                                                                                                                100% 1357MB   1.1MB/s   20:10
+Norm.test.txt                                                                                                                    100%  122MB   1.1MB/s   01:48
+Norm.train.txt                                                                                                                    84%  326MB   1.1MB/s   00:52 ETA
+Norm.train.txt                                                                                                                   100%  385MB   1.1MB/s   05:43
+Norm.vali.txt                                                                                                                    100%  123MB   1.1MB/s   01:49
+Norm.train.txt                                                                                                                   100% 4040MB   1.1MB/s 1:00:04
+HR-all.skl                                                                                                                       100%  665MB   1.1MB/s   09:53
+FWLS-all.skl                                                                                                                      53% 5655MB   1.1MB/s 1:13:03 ETA
+FWLS-all.skl                                                                                                                      78% 8319MB   1.1MB/s   33:24 ETA^
+FWLS-all.skl                                                                                                                      78% 8322MB   1.1MB/s   33:22 ETA
+FWLS-all.skl                                                                                                                     100%   10GB   1.1MB/s 2:37:12
+train-keys.csv                                                                                                                   100%   22MB   1.1MB/s   00:19
+main.py                                                                                                                          100% 2761   144.7KB/s   00:00
+FWLS-all.features                                                                                                                100% 6711   672.1KB/s   00:00
+STREAM-all.features                                                                                                              100%  473   176.6KB/s   00:00
+Norm.vali.txt                                                                                                                    100% 1370MB   1.1MB/s   20:22
+baseline.info.Norm.vali.txt                                                                                                      100%   41     3.3KB/s   00:00
+Norm.train.bin                                                                                                                   100%   84MB   1.1MB/s   01:14
+baseline.Norm.train.txt                                                                                                          100% 7695KB   1.1MB/s   00:06
+Norm.test.bin                                                                                                                    100%   58MB   1.1MB/s   00:51
+baseline.Norm.vali.txt                                                                                                           100% 2455KB   1.1MB/s   00:02
+Norm.vali.bin                                                                                                                    100%   27MB   1.1MB/s   00:24
+Norm.test.txt                                                                                                                    100%  266MB   1.1MB/s   03:57
+Norm.train.txt                                                                                                                   100%  391MB   1.1MB/s   05:48
+jforests-discrete-Norm.test.txt

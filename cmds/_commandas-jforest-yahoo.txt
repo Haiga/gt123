@@ -1,0 +1,54 @@
+--cmd=generate-bin --ranking --folder parameters/ --file train.txt --file vali.txt --file test.txt
+
+--cmd=train --ranking --config-file parameters/ranking.properties --train-file parameters/train.bin --validation-file parameters/vali.bin --output-model parameters/ensemble.txt
+
+--cmd=predict --ranking --model-file parameters/ensemble.txt --tree-type RegressionTree --test-file parameters/test.bin --output-file parameters/predictions.txt
+
+######################
+Execuções Lambda tfaro tasmania web10k
+
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web10k/Fold1/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web10k/Fold2/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web10k/Fold3/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web10k/Fold4/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web10k/Fold5/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+
+
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+
+cp ranking.properties lmart/ranking.properties
+
+mkdir lmart
+cd lmart
+mkdir web10k
+cd web10k
+mkdir Fold1
+mkdir Fold2
+mkdir Fold3
+mkdir Fold4
+mkdir Fold5
+
+#!/usr/bin/env bash
+python normalize.py --ds_path ./../../BD/default-web10k/Fold1/
+python normalize.py --ds_path ./../../BD/default-web10k/Fold2/
+python normalize.py --ds_path ./../../BD/default-web10k/Fold3/
+python normalize.py --ds_path ./../../BD/default-web10k/Fold4/
+python normalize.py --ds_path ./../../BD/default-web10k/Fold5/
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file ranking.properties --train-file BD/Norm.train.bin --validation-file BD/Norm.vali.bin --output-model Fold1/ensemble.txt > run1.log
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file ranking.properties --train-file BD/Norm.train.bin --validation-file BD/Norm.vali.bin --output-model Fold2/ensemble.txt > run2.log
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file ranking.properties --train-file BD/Norm.train.bin --validation-file BD/Norm.vali.bin --output-model Fold3/ensemble.txt > run3.log
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file ranking.properties --train-file BD/Norm.train.bin --validation-file BD/Norm.vali.bin --output-model Fold4/ensemble.txt > run4.log
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file ranking.properties --train-file BD/Norm.train.bin --validation-file BD/Norm.vali.bin --output-model Fold5/ensemble.txt > run5.log
+
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/Norm.test.bin --output-file Fold1/predictions.txt > pred1.log
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/Norm.test.bin --output-file Fold2/predictions.txt > pred2.log
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/Norm.test.bin --output-file Fold3/predictions.txt > pred3.log
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/Norm.test.bin --output-file Fold4/predictions.txt > pred4.log
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/Norm.test.bin --output-file Fold5/predictions.txt > pred5.log
+
+dir
+
+
+nohup sh execmart.sh > log-mart.log &

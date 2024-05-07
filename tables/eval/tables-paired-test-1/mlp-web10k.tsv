@@ -1,0 +1,7 @@
+geoRisk	0.4225	0.4113 b	0.4034* b	0.3796* b	
+extgeoRisk	0.3870	0.3713	0.3843	0.3584	
+lambdaLoss	0.3631	0.3380	0.3684	0.3331	
+listNet	0.3666	0.3509	0.3588	0.3293	
+ordinalmulti	0.4227	0.4082	s0.4010	s0.3759	
+pointwise_rmsemulti	s0.4231 b	s0.4086	0.3987	0.3747	
+spearmanLossmulti	0.3997	0.3819	0.3918	0.3634	

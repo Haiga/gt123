@@ -1,0 +1,12 @@
+{
+  "data": {
+    "path": "E:/BCC/Disciplinas Faculdade/TCC/tcc_l2r/dataset/2003_td_dataset/Fold1"
+  },
+  "training": {
+    "epochs": 5
+  },
+  "metrics": "ndcg_10",
+  "loss": {
+    "name": "approxNDCG"
+  }
+}

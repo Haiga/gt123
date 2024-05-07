@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/mq2007/Fold1/Norm.train.bin --validation-file BD/mq2007/Fold1/Norm.vali.bin --output-model lmart2/mq2007/Fold1/ensemble.txt
+echo "ending 1"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/mq2007/Fold2/Norm.train.bin --validation-file BD/mq2007/Fold2/Norm.vali.bin --output-model lmart2/mq2007/Fold2/ensemble.txt
+echo "ending 5"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/mq2007/Fold3/Norm.train.bin --validation-file BD/mq2007/Fold3/Norm.vali.bin --output-model lmart2/mq2007/Fold3/ensemble.txt
+echo "ending 3"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/mq2007/Fold4/Norm.train.bin --validation-file BD/mq2007/Fold4/Norm.vali.bin --output-model lmart2/mq2007/Fold4/ensemble.txt
+echo "ending 4"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/mq2007/Fold5/Norm.train.bin --validation-file BD/mq2007/Fold5/Norm.vali.bin --output-model lmart2/mq2007/Fold5/ensemble.txt
+echo "ending 5"
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/datay/Norm.train.bin --validation-file BD/datay/Norm.vali.bin --output-model lmart2/datay/ensemble.txt
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/mq2007/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/mq2007/Fold1/Norm.test.bin --output-file lmart2/mq2007/Fold1/predictions.txt
+echo "predicted 1"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/mq2007/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/mq2007/Fold2/Norm.test.bin --output-file lmart2/mq2007/Fold2/predictions.txt
+echo "predicted 2"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/mq2007/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/mq2007/Fold3/Norm.test.bin --output-file lmart2/mq2007/Fold3/predictions.txt
+echo "predicted 3"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/mq2007/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/mq2007/Fold4/Norm.test.bin --output-file lmart2/mq2007/Fold4/predictions.txt
+echo "predicted 4"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/mq2007/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/mq2007/Fold5/Norm.test.bin --output-file lmart2/mq2007/Fold5/predictions.txt
+echo "predicted 5"
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/datay/ensemble.txt --tree-type RegressionTree --test-file BD/datay/Norm.test.bin --output-file lmart2/datay/predictions.txt
+
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/web10k/Fold1/Norm.train.bin --validation-file BD/web10k/Fold1/Norm.vali.bin --output-model lmart2/web10k/Fold1/ensemble.txt
+echo "ending 11"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/web10k/Fold2/Norm.train.bin --validation-file BD/web10k/Fold2/Norm.vali.bin --output-model lmart2/web10k/Fold2/ensemble.txt
+echo "ending 12"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/web10k/Fold3/Norm.train.bin --validation-file BD/web10k/Fold3/Norm.vali.bin --output-model lmart2/web10k/Fold3/ensemble.txt
+echo "ending 13"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/web10k/Fold4/Norm.train.bin --validation-file BD/web10k/Fold4/Norm.vali.bin --output-model lmart2/web10k/Fold4/ensemble.txt
+echo "ending 14"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart2/ranking2.properties --train-file BD/web10k/Fold5/Norm.train.bin --validation-file BD/web10k/Fold5/Norm.vali.bin --output-model lmart2/web10k/Fold5/ensemble.txt
+echo "ending 15"
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/web10k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web10k/Fold1/Norm.test.bin --output-file lmart2/web10k/Fold1/predictions.txt
+echo "predicted 11"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/web10k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web10k/Fold2/Norm.test.bin --output-file lmart2/web10k/Fold2/predictions.txt
+echo "predicted 12"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/web10k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web10k/Fold3/Norm.test.bin --output-file lmart2/web10k/Fold3/predictions.txt
+echo "predicted 13"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/web10k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web10k/Fold4/Norm.test.bin --output-file lmart2/web10k/Fold4/predictions.txt
+echo "predicted 14"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart2/web10k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web10k/Fold5/Norm.test.bin --output-file lmart2/web10k/Fold5/predictions.txt
+echo "predicted 15"

@@ -1,0 +1,62 @@
+2021-07-06 13:06:07,272 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id2', tensorboard_output_path='results-new/tb_evals\\single\\id2', config_path='localtemp_config.json')
+2021-07-06 13:06:07,272 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=100, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='listNet', args={}),
+ 'lr_scheduler': NameArgsConfig(name='StepLR', args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'ndcg': [5,
+                                  10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2021-07-06 13:06:07,273 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id2\used_config.json"
+2021-07-06 13:06:07,285 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2021-07-06 13:06:07,285 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2021-07-06 13:06:08,694 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2021-07-06 13:06:08,704 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2021-07-06 13:06:08,704 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2021-07-06 13:06:08,705 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2021-07-06 13:06:08,706 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2021-07-06 13:06:09,160 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2021-07-06 13:06:09,163 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2021-07-06 13:06:09,164 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2021-07-06 13:06:09,164 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2021-07-06 13:06:09,164 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2021-07-06 13:06:09,164 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2021-07-06 13:06:09,615 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2021-07-06 13:06:09,618 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2021-07-06 13:06:09,618 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2021-07-06 13:06:09,619 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2021-07-06 13:06:09,619 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2021-07-06 13:06:09,620 - allrank.utils.ltr_logging - INFO - total batch size is 100
+2021-07-06 13:06:09,620 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2021-07-06 13:06:09,628 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2021-07-06 13:06:09,629 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2021-07-06 13:06:55,434 - allrank.utils.ltr_logging - INFO - Epoch : 0 Train loss: 3.7133304123329904 Val loss: 3.7003228347913355 Train ndcg_5 0.21359913051128387 Train ndcg_10 0.24661871790885925 Train lndcg_5 0.2230222523212433 Train lndcg_10 0.2553987503051758 Train georisk_10 0.3286019563674927 Val ndcg_5 0.1991797685623169 Val ndcg_10 0.24371065199375153 Val lndcg_5 0.2083742767572403 Val lndcg_10 0.25141921639442444 Val georisk_10 0.320557564496994
+2021-07-06 13:06:55,435 - allrank.utils.ltr_logging - INFO - Current:0.24371065199375153 Best:0.0
+2021-07-06 13:06:57,360 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.21069470766084344, 'ndcg_10': 0.2419573762004625, 'lndcg_5': 0.22013499131953593, 'lndcg_10': 0.2502973193996475} 
+2021-07-06 13:06:57,360 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2021-07-06 13:07:42,180 - allrank.utils.ltr_logging - INFO - Epoch : 1 Train loss: 3.7123411189372795 Val loss: 3.7003032225774803 Train ndcg_5 0.20507609844207764 Train ndcg_10 0.23746581375598907 Train lndcg_5 0.21649882197380066 Train lndcg_10 0.2478242814540863 Train georisk_10 0.328060120344162 Val ndcg_5 0.2136673629283905 Val ndcg_10 0.25654616951942444 Val lndcg_5 0.22299648821353912 Val lndcg_10 0.2640925347805023 Val georisk_10 0.3280027508735657
+2021-07-06 13:07:42,181 - allrank.utils.ltr_logging - INFO - Current:0.25654616951942444 Best:0.24371065199375153
+2021-07-06 13:07:44,457 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.22295842991521217, 'ndcg_10': 0.25635509133389994, 'lndcg_5': 0.23294792975244996, 'lndcg_10': 0.2649465405561001} 
+2021-07-06 13:07:44,458 - allrank.utils.ltr_logging - INFO - Ending execution. Train Losses:
+[3.7133304123329904, 3.7123411189372795]
+2021-07-06 13:07:44,458 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Losses (not used to train):
+[3.7003228347913355, 3.7003032225774803]
+2021-07-06 13:07:44,458 - allrank.utils.ltr_logging - INFO - Ending execution. Train Metrics Evolution:
+[{'ndcg_5': 0.21359913, 'ndcg_10': 0.24661872, 'lndcg_5': 0.22302225, 'lndcg_10': 0.25539875, 'georisk_10': 0.32860196}, {'ndcg_5': 0.2050761, 'ndcg_10': 0.23746581, 'lndcg_5': 0.21649882, 'lndcg_10': 0.24782428, 'georisk_10': 0.32806012}]
+2021-07-06 13:07:44,458 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Metrics Evolution:
+[{'ndcg_5': 0.19917977, 'ndcg_10': 0.24371065, 'lndcg_5': 0.20837428, 'lndcg_10': 0.25141922, 'georisk_10': 0.32055756}, {'ndcg_5': 0.21366736, 'ndcg_10': 0.25654617, 'lndcg_5': 0.22299649, 'lndcg_10': 0.26409253, 'georisk_10': 0.32800275}]
+2021-07-06 13:07:44,458 - allrank.utils.ltr_logging - INFO - Ending execution. Test Metrics Evolution:
+[{'ndcg_5': 0.21069470766084344, 'ndcg_10': 0.2419573762004625, 'lndcg_5': 0.22013499131953593, 'lndcg_10': 0.2502973193996475}, {'ndcg_5': 0.22295842991521217, 'ndcg_10': 0.25635509133389994, 'lndcg_5': 0.23294792975244996, 'lndcg_10': 0.2649465405561001}]

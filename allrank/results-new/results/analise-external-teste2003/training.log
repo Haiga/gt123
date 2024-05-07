@@ -1,0 +1,69 @@
+2023-08-11 09:49:12,553 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\analise-external-teste2003', tensorboard_output_path='results-new/tb_evals\\single\\analise-external-teste2003', config_path='localtemp_config.json')
+2023-08-11 09:49:12,554 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\2003_td_dataset-norm\\Fold2', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='geoRiskSpearmanLoss', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=32, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=3, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-11 09:49:12,554 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\analise-external-teste2003\used_config.json"
+2023-08-11 09:49:12,575 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-11 09:49:12,575 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\2003_td_dataset-norm\Fold2\Norm.train.txt
+2023-08-11 09:49:13,231 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\2003_td_dataset-norm\\Fold2\\Norm.train.txt'> and got x shape (15750, 64), y shape (15750,) and query_ids shape (15750,)
+2023-08-11 09:49:13,241 - allrank.utils.ltr_logging - INFO - loaded dataset with 30 queries
+2023-08-11 09:49:13,241 - allrank.utils.ltr_logging - INFO - longest query had 525 documents
+2023-08-11 09:49:13,245 - allrank.utils.ltr_logging - INFO - train DS shape: [30, 525, 64]
+2023-08-11 09:49:13,245 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\2003_td_dataset-norm\Fold2\Norm.vali.txt
+2023-08-11 09:49:13,658 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\2003_td_dataset-norm\\Fold2\\Norm.vali.txt'> and got x shape (10000, 64), y shape (10000,) and query_ids shape (10000,)
+2023-08-11 09:49:13,664 - allrank.utils.ltr_logging - INFO - loaded dataset with 10 queries
+2023-08-11 09:49:13,664 - allrank.utils.ltr_logging - INFO - longest query had 1000 documents
+2023-08-11 09:49:13,666 - allrank.utils.ltr_logging - INFO - vali DS shape: [10, 1000, 64]
+2023-08-11 09:49:13,666 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 1000
+2023-08-11 09:49:13,666 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\2003_td_dataset-norm\Fold2\Norm.test.txt
+2023-08-11 09:49:14,071 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\2003_td_dataset-norm\\Fold2\\Norm.test.txt'> and got x shape (10000, 64), y shape (10000,) and query_ids shape (10000,)
+2023-08-11 09:49:14,077 - allrank.utils.ltr_logging - INFO - loaded dataset with 10 queries
+2023-08-11 09:49:14,077 - allrank.utils.ltr_logging - INFO - longest query had 1000 documents
+2023-08-11 09:49:14,079 - allrank.utils.ltr_logging - INFO - test DS shape: [10, 1000, 64]
+2023-08-11 09:49:14,080 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 1000
+2023-08-11 09:49:14,081 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-11 09:49:14,081 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-11 09:49:14,088 - allrank.utils.ltr_logging - INFO - Model has 42369 trainable parameters
+2023-08-11 09:49:14,089 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-11 09:49:19,599 - allrank.utils.ltr_logging - INFO - Epoch : 0 Train loss: 0.3149592677752177 Val loss: 0.37675103545188904 Train ndcg_5 0.01963200606405735 Train ndcg_10 0.01963200606405735 Train lndcg_5 0.03357625752687454 Train lndcg_10 0.03235766664147377 Train lndcg1_5 0.2079065889120102 Train lndcg1_10 0.21978016197681427 Train ndcg1_5 0.20560425519943237 Train ndcg1_10 0.24602070450782776 Train georisk_10 0.18101465702056885 Val ndcg_5 0.06832649558782578 Val ndcg_10 0.08565802127122879 Val lndcg_5 0.06832649558782578 Val lndcg_10 0.08565802127122879 Val lndcg1_5 0.1683264970779419 Val lndcg1_10 0.1856580227613449 Val ndcg1_5 0.1683264970779419 Val ndcg1_10 0.1856580227613449 Val georisk_10 0.2049928456544876
+2023-08-11 09:49:19,599 - allrank.utils.ltr_logging - INFO - Current:0.08565802127122879 Best:0.0
+2023-08-11 09:49:20,428 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.0169580100938534, 'ndcg_10': 0.0239920894185232, 'lndcg_5': 0.0169580100938534, 'lndcg_10': 0.0239920894185232, 'lndcg1_5': 0.0169580100938534, 'lndcg1_10': 0.0239920894185232, 'ndcg1_5': 0.0169580100938534, 'ndcg1_10': 0.0239920894185232} 
+2023-08-11 09:49:20,428 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-11 09:49:25,850 - allrank.utils.ltr_logging - INFO - Epoch : 1 Train loss: 0.3270922005176544 Val loss: 0.37666431069374084 Train ndcg_5 0.021694015711545944 Train ndcg_10 0.031337615102529526 Train lndcg_5 0.024200433865189552 Train lndcg_10 0.0641719251871109 Train lndcg1_5 0.20000000298023224 Train lndcg1_10 0.21873314678668976 Train ndcg1_5 0.28014060854911804 Train ndcg1_10 0.3070007264614105 Train georisk_10 0.18877723813056946 Val ndcg_5 0.08144700527191162 Val ndcg_10 0.08710332214832306 Val lndcg_5 0.08144700527191162 Val lndcg_10 0.08710332214832306 Val lndcg1_5 0.18144699931144714 Val lndcg1_10 0.1871033012866974 Val ndcg1_5 0.18144699931144714 Val ndcg1_10 0.1871033012866974 Val georisk_10 0.206556499004364
+2023-08-11 09:49:25,850 - allrank.utils.ltr_logging - INFO - Current:0.08710332214832306 Best:0.08565802127122879
+2023-08-11 09:49:26,654 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.0169580100938534, 'ndcg_10': 0.024890832670330244, 'lndcg_5': 0.0169580100938534, 'lndcg_10': 0.024890832670330244, 'lndcg1_5': 0.0169580100938534, 'lndcg1_10': 0.024890832670330244, 'ndcg1_5': 0.0169580100938534, 'ndcg1_10': 0.024890832670330244} 
+2023-08-11 09:49:26,654 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-11 09:49:32,028 - allrank.utils.ltr_logging - INFO - Epoch : 2 Train loss: 0.3230918248494466 Val loss: 0.37660881876945496 Train ndcg_5 0.04359465092420578 Train ndcg_10 0.08896253257989883 Train lndcg_5 0.057206206023693085 Train lndcg_10 0.06831731647253036 Train lndcg1_5 0.2130126655101776 Train lndcg1_10 0.2225576937198639 Train ndcg1_5 0.2195189893245697 Train ndcg1_10 0.2410280704498291 Train georisk_10 0.20703262090682983 Val ndcg_5 0.06832649558782578 Val ndcg_10 0.0862501934170723 Val lndcg_5 0.06832649558782578 Val lndcg_10 0.0862501934170723 Val lndcg1_5 0.1683264970779419 Val lndcg1_10 0.18625019490718842 Val ndcg1_5 0.1683264970779419 Val ndcg1_10 0.18625019490718842 Val georisk_10 0.20560337603092194
+2023-08-11 09:49:32,030 - allrank.utils.ltr_logging - INFO - Current:0.0862501934170723 Best:0.08710332214832306
+2023-08-11 09:49:32,927 - allrank.utils.ltr_logging - INFO - Ending execution. Train Losses:
+[0.3149592677752177, 0.3270922005176544, 0.3230918248494466]
+2023-08-11 09:49:32,928 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Losses (not used to train):
+[0.37675103545188904, 0.37666431069374084, 0.37660881876945496]
+2023-08-11 09:49:32,928 - allrank.utils.ltr_logging - INFO - Ending execution. Train Metrics Evolution:
+[{'ndcg_5': 0.019632006, 'ndcg_10': 0.019632006, 'lndcg_5': 0.033576258, 'lndcg_10': 0.032357667, 'lndcg1_5': 0.20790659, 'lndcg1_10': 0.21978016, 'ndcg1_5': 0.20560426, 'ndcg1_10': 0.2460207, 'georisk_10': 0.18101466}, {'ndcg_5': 0.021694016, 'ndcg_10': 0.031337615, 'lndcg_5': 0.024200434, 'lndcg_10': 0.064171925, 'lndcg1_5': 0.2, 'lndcg1_10': 0.21873315, 'ndcg1_5': 0.2801406, 'ndcg1_10': 0.30700073, 'georisk_10': 0.18877724}, {'ndcg_5': 0.04359465, 'ndcg_10': 0.08896253, 'lndcg_5': 0.057206206, 'lndcg_10': 0.06831732, 'lndcg1_5': 0.21301267, 'lndcg1_10': 0.2225577, 'ndcg1_5': 0.21951899, 'ndcg1_10': 0.24102807, 'georisk_10': 0.20703262}]
+2023-08-11 09:49:32,928 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Metrics Evolution:
+[{'ndcg_5': 0.068326496, 'ndcg_10': 0.08565802, 'lndcg_5': 0.068326496, 'lndcg_10': 0.08565802, 'lndcg1_5': 0.1683265, 'lndcg1_10': 0.18565802, 'ndcg1_5': 0.1683265, 'ndcg1_10': 0.18565802, 'georisk_10': 0.20499285}, {'ndcg_5': 0.081447005, 'ndcg_10': 0.08710332, 'lndcg_5': 0.081447005, 'lndcg_10': 0.08710332, 'lndcg1_5': 0.181447, 'lndcg1_10': 0.1871033, 'ndcg1_5': 0.181447, 'ndcg1_10': 0.1871033, 'georisk_10': 0.2065565}, {'ndcg_5': 0.068326496, 'ndcg_10': 0.08625019, 'lndcg_5': 0.068326496, 'lndcg_10': 0.08625019, 'lndcg1_5': 0.1683265, 'lndcg1_10': 0.1862502, 'ndcg1_5': 0.1683265, 'ndcg1_10': 0.1862502, 'georisk_10': 0.20560338}]
+2023-08-11 09:49:32,928 - allrank.utils.ltr_logging - INFO - Ending execution. Test Metrics Evolution:
+[{'ndcg_5': 0.0169580100938534, 'ndcg_10': 0.0239920894185232, 'lndcg_5': 0.0169580100938534, 'lndcg_10': 0.0239920894185232, 'lndcg1_5': 0.0169580100938534, 'lndcg1_10': 0.0239920894185232, 'ndcg1_5': 0.0169580100938534, 'ndcg1_10': 0.0239920894185232}, {'ndcg_5': 0.0169580100938534, 'ndcg_10': 0.024890832670330244, 'lndcg_5': 0.0169580100938534, 'lndcg_10': 0.024890832670330244, 'lndcg1_5': 0.0169580100938534, 'lndcg1_10': 0.024890832670330244, 'ndcg1_5': 0.0169580100938534, 'ndcg1_10': 0.024890832670330244}]

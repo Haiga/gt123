@@ -1,0 +1,49 @@
+ML5K
+georiskSpearman
+alpha=2
+use_baseline=False
+listnet_transformation=2
+type_return=2 (bem empatado com o 1)
+
+georiskLambda - colocar em último
+alpha=5
+use_baseline=1
+listnet_transformation=2 (houve muitos com 4)
+type_return=2 (bem empatado com o 3)
+
+
+georiskListNet
+alpha=10
+use_baseline=False
+listnet_transformation=4
+type_return=2 (bem empatado com o 1)
+
+
+
+
+
+
+
+
+
+------------------------------------------
+WEB10K
+georiskSpearman
+alpha=2
+use_baseline=False (bem empatado com o True)
+listnet_transformation=2
+type_return=2 (bem empatado com o 3)
+
+
+georiskLambda - colocar em último
+alpha=10
+use_baseline=True
+listnet_transformation=2
+type_return=2
+
+georiskListNet
+alpha=2
+use_baseline=True (bem empatado com o False)
+listnet_transformation=2
+type_return=2 (bem empatado com o 3)
+

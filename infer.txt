@@ -1,0 +1,2 @@
+python allrank/rank_and_click.py
+--input-model-path results\results\id\model.pkl --roles test --config-file-name results\results\id\used_config.json --run-id id --job-dir results2

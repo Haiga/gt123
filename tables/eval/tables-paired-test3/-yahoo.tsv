@@ -1,0 +1,11 @@
+RiskLoss+DO	0.5635	0.5250	
+RiskLoss+DO	0.5828* b	0.5512	
+RiskLoss+EB	0.5759	0.5461	
+RiskLoss+EB	0.5761	0.5459	
+NDCGLoss2++	0.5815	0.5517*dagger b	
+ListNet	0.5656	0.5317	
+Ordinal	0.5704	0.5353	
+MSE	0.5819	0.5504	
+SpearmanLoss	0.5646	0.5261	
+GeoRisk-LM	0.5596	0.5253	
+LambdaMart	0.5610	0.5280	

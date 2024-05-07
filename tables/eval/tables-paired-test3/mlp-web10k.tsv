@@ -1,0 +1,7 @@
+RiskLoss+DO	0.4034* b	0.3796* b	
+RiskLoss+EB	0.3843	0.3584	
+NDCGLoss2++	0.3684	0.3331	
+ListNet	0.3588	0.3293	
+Ordinal	0.4010*	0.3759*	
+MSE	0.3987	0.3747	
+SpearmanLoss	0.3918	0.3634	

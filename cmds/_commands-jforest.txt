@@ -1,0 +1,130 @@
+--cmd=generate-bin --ranking --folder parameters/ --file train.txt --file vali.txt --file test.txt
+
+--cmd=train --ranking --config-file parameters/ranking.properties --train-file parameters/train.bin --validation-file parameters/vali.bin --output-model parameters/ensemble.txt
+
+--cmd=predict --ranking --model-file parameters/ensemble.txt --tree-type RegressionTree --test-file parameters/test.bin --output-file parameters/predictions.txt
+
+ranking.properties
+
+trees.num-leaves=7
+#trees.num-leaves=100
+trees.min-instance-percentage-per-leaf=0.25
+boosting.learning-rate=0.05
+boosting.sub-sampling=0.3
+trees.feature-sampling=0.3
+
+boosting.num-trees=3
+#boosting.num-trees=500
+learning.algorithm=LambdaMART-RegressionTree
+#learning.evaluation-metric=NDCG
+learning.evaluation-metric=TRiskAwareFAROEval:1:NDCG
+
+params.print-intermediate-valid-measurements=true
+
+######################
+Execuções Lambda tfaro tasmania web30k
+
+#!/usr/bin/env bash
+
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web30k/Fold1/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web30k/Fold2/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web30k/Fold3/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web30k/Fold4/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+java -jar jforests-0.5.jar --cmd=generate-bin --ranking --folder BD/web30k/Fold5/ --file Norm.train.txt --file Norm.vali.txt --file Norm.test.txt
+
+mkdir lmart
+cp ranking.properties lmart/ranking.properties
+cd lmart
+mkdir web30k
+cd web30k
+mkdir Fold1
+mkdir Fold2
+mkdir Fold3
+mkdir Fold4
+mkdir Fold5
+
+nohup sh execmart0.sh > log0-mart.log &
+
+#!/usr/bin/env bash
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart/ranking.properties --train-file BD/web30k/Fold1/Norm.train.bin --validation-file BD/web30k/Fold1/Norm.vali.bin --output-model lmart/web30k/Fold1/ensemble.txt
+echo "ending 1"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart/ranking.properties --train-file BD/web30k/Fold2/Norm.train.bin --validation-file BD/web30k/Fold2/Norm.vali.bin --output-model lmart/web30k/Fold2/ensemble.txt
+echo "ending 5"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart/ranking.properties --train-file BD/web30k/Fold3/Norm.train.bin --validation-file BD/web30k/Fold3/Norm.vali.bin --output-model lmart/web30k/Fold3/ensemble.txt
+echo "ending 3"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart/ranking.properties --train-file BD/web30k/Fold4/Norm.train.bin --validation-file BD/web30k/Fold4/Norm.vali.bin --output-model lmart/web30k/Fold4/ensemble.txt
+echo "ending 4"
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file lmart/ranking.properties --train-file BD/web30k/Fold5/Norm.train.bin --validation-file BD/web30k/Fold5/Norm.vali.bin --output-model lmart/web30k/Fold5/ensemble.txt
+echo "ending 5"
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold1/Norm.test.bin --output-file lmart/web30k/Fold1/predictions.txt
+echo "predicted 1"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold2/Norm.test.bin --output-file lmart/web30k/Fold2/predictions.txt
+echo "predicted 2"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold3/Norm.test.bin --output-file lmart/web30k/Fold3/predictions.txt
+echo "predicted 3"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold4/Norm.test.bin --output-file lmart/web30k/Fold4/predictions.txt
+echo "predicted 4"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold5/Norm.test.bin --output-file lmart/web30k/Fold5/predictions.txt
+echo "predicted 5"
+
+nohup sh execmart1.sh > log1-mart.log &
+
+
+
+
+
+
+------------------
+
+
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file grisklmart/ranking.properties --train-file BD/web30k/Fold1/Norm.train.bin --validation-file BD/web30k/Fold1/Norm.vali.bin --output-model grisklmart/web30k/Fold1/ensemble.txt
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file grisklmart/ranking.properties --train-file BD/web30k/Fold2/Norm.train.bin --validation-file BD/web30k/Fold2/Norm.vali.bin --output-model grisklmart/web30k/Fold2/ensemble.txt
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file grisklmart/ranking.properties --train-file BD/web30k/Fold3/Norm.train.bin --validation-file BD/web30k/Fold3/Norm.vali.bin --output-model grisklmart/web30k/Fold3/ensemble.txt
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file grisklmart/ranking.properties --train-file BD/web30k/Fold4/Norm.train.bin --validation-file BD/web30k/Fold4/Norm.vali.bin --output-model grisklmart/web30k/Fold4/ensemble.txt
+java -jar jforests-0.5.jar --cmd=train --ranking --config-file grisklmart/ranking.properties --train-file BD/web30k/Fold5/Norm.train.bin --validation-file BD/web30k/Fold5/Norm.vali.bin --output-model grisklmart/web30k/Fold5/ensemble.txt
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file grisklmart/web30k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold1/Norm.test.bin --output-file grisklmart/web30k/Fold1/predictions.txt
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file grisklmart/web30k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold2/Norm.test.bin --output-file grisklmart/web30k/Fold2/predictions.txt
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file grisklmart/web30k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold3/Norm.test.bin --output-file grisklmart/web30k/Fold3/predictions.txt
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file grisklmart/web30k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold4/Norm.test.bin --output-file grisklmart/web30k/Fold4/predictions.txt
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file grisklmart/web30k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold5/Norm.test.bin --output-file grisklmart/web30k/Fold5/predictions.txt
+ls
+
+
+---------------------------
+
+
+#!/usr/bin/env bash
+
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold1/Norm.train.bin --output-file BD/web30k/Fold1/lmart-train.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold1/Norm.test.bin --output-file BD/web30k/Fold1/lmart-test.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold1/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold1/Norm.vali.bin --output-file BD/web30k/Fold1/lmart-vali.csv
+echo "predicted 1"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold2/Norm.train.bin --output-file BD/web30k/Fold2/lmart-train.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold2/Norm.test.bin --output-file BD/web30k/Fold2/lmart-test.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold2/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold2/Norm.vali.bin --output-file BD/web30k/Fold2/lmart-vali.csv
+echo "predicted 2"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold3/Norm.train.bin --output-file BD/web30k/Fold3/lmart-train.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold3/Norm.test.bin --output-file BD/web30k/Fold3/lmart-test.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold3/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold3/Norm.vali.bin --output-file BD/web30k/Fold3/lmart-vali.csv
+echo "predicted 3"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold4/Norm.train.bin --output-file BD/web30k/Fold4/lmart-train.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold4/Norm.test.bin --output-file BD/web30k/Fold4/lmart-test.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold4/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold4/Norm.vali.bin --output-file BD/web30k/Fold4/lmart-vali.csv
+echo "predicted 4"
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold5/Norm.train.bin --output-file BD/web30k/Fold5/lmart-train.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold5/Norm.test.bin --output-file BD/web30k/Fold5/lmart-test.csv
+java -jar jforests-0.5.jar --cmd=predict --ranking --model-file lmart/web30k/Fold5/ensemble.txt --tree-type RegressionTree --test-file BD/web30k/Fold5/Norm.vali.bin --output-file BD/web30k/Fold5/lmart-vali.csv
+echo "predicted 5"
+
+nohup sh predictlmart.sh > log-predictlmart-mart.log &
+nohup sh execmart2.sh > log2-mart.log &
+-----
+
+chmod +x execmart0.sh
+chmod +x execmart1.sh
+chmod +x execmart2.sh
+chmod +x jforests-0.5.jar
+nohup sh execmart1.sh > log1-mart.log &
+

@@ -1,0 +1,486 @@
+Comandos úteis, nohup tail, ls -l para ver infos
+tail temp.txt
+ls -l filename
+nohup python3 test.py > custom-out.log &
+
+
+Iniciando esse projeto e obtendo arquivos de dados
+
+Estrutura
+/experimento_loss_risk/ -- root
+/experimento_loss_risk/BD/ -- contém os dados
+/experimento_loss_risk/pytorch-risk-loss/ -- esse repositório
+
+ssh silvapedro@login.dcc.ufmg.br
+meujogo1./
+
+Máquinas que eu comumente uso no DCC
+manhatam ssh silvapedro@150.164.2.9****
+tasmania - ssh silvapedro@150.164.2.43############
+tasmania - ssh lbduser@150.164.2.43############
+batan - ssh silvapedro@150.164.2.56############
+noronha - ssh silvapedro@150.164.2.62############
+itaparica - ssh silvapedro@150.164.2.6############
+itaparica - ssh lbduser@150.164.2.6############
+
+meujogo1./
+_aduk3n_
+
+mkdir experimento_loss_risk
+cd experimento_loss_risk
+mkdir BD
+mkdir execlogs
+cd BD
+pip3 install gdown
+gdown https://drive.google.com/uc?id=1XmCpPiPDS6st724_v99JtCtSEa4ev1UX
+
+https://drive.google.com/file/d/1FcgZpDsUuXR3ppAq4mygdSHLmtuBJMxY/view?usp=sharing
+
+import gdown
+url = 'https://drive.google.com/uc?id=1FcgZpDsUuXR3ppAq4mygdSHLmtuBJMxY'
+output = 'data-geral.zip'
+gdown.download(url, output, quiet=False)
+
+
+unzip yahoo.zip
+#yahoo
+gdown https://drive.google.com/uc?id=1Qx1Q4hwBLyzWBwQMenBzYxMry5m04XZD
+unzip web10k-norm.zip
+mv web10k-norm web10k
+
+#table gdown https://drive.google.com/uc?id=1hEP5ZLH-oBgH1nWiwZZYJ3dy909k9pWs
+unzip my-tests.zip
+
+cd ..
+git clone https://github.com/Haiga/pytorch-risk-loss.git ######mymlp
+git clone https://github.com/Haiga/risk-loss-nn.git #########alrank
+pedro_rga@hotmail.com
+
+cd pytorch-risk-loss
+python3 -m venv venv ########or virtualenv -p python venv
+virtualenv -p python3 venv
+
+source venv/bin/activate
+pip install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+pip install -r requirements.txt
+ls
+cd ..
+##python3 --version
+sudo su
+nohup python -u pytorch-risk-loss/execute_commands.py pytorch-risk-loss/comands.txt 1 > info.log &
+
+################################################################################################################################
+################################################################################################################################
+################################################################################################################################
+mv y4mbMVHlqkMg2k6z1RrQc3h2r2jHyxeY4aIDGqBe-nktJ9qnjk1RT2Yi0CN3farvlmgssnDMIDJl8G8iUEf1CEHDH912_YjrCV_BfqlHxew4Q9Mf0HxCBAKhngScGk1jmIvDdN_RGwNZcoaZfsZH3Z2v6fIj_zO4l1h_Xqs2zyaqTbqSP4TCR0lLu1ocY3hLRSS7X7TD0WJ9oDPBbLVy53D7iQ1t3tbZ1P1kC-I4tinI web30k.zip
+mkdir web30k
+mv web30k.zip web30k/web30k.zip
+cd web30k
+unzip web30k.zip
+cd Fold1
+mv test.txt Norm.test.txt
+mv vali.txt Norm.vali.txt
+mv train.txt Norm.train.txt
+cd ..
+cd Fold2
+mv test.txt Norm.test.txt
+mv vali.txt Norm.vali.txt
+mv train.txt Norm.train.txt
+cd ..
+cd Fold3
+mv test.txt Norm.test.txt
+mv vali.txt Norm.vali.txt
+mv train.txt Norm.train.txt
+cd ..
+cd Fold4
+mv test.txt Norm.test.txt
+mv vali.txt Norm.vali.txt
+mv train.txt Norm.train.txt
+cd ..
+cd Fold5
+mv test.txt Norm.test.txt
+mv vali.txt Norm.vali.txt
+mv train.txt Norm.train.txt
+cd ..
+##############################################
+https://public.dm.files.1drv.com/y4mbMVHlqkMg2k6z1RrQc3h2r2jHyxeY4aIDGqBe-nktJ9qnjk1RT2Yi0CN3farvlmgssnDMIDJl8G8iUEf1CEHDH912_YjrCV_BfqlHxew4Q9Mf0HxCBAKhngScGk1jmIvDdN_RGwNZcoaZfsZH3Z2v6fIj_zO4l1h_Xqs2zyaqTbqSP4TCR0lLu1ocY3hLRSS7X7TD0WJ9oDPBbLVy53D7iQ1t3tbZ1P1kC-I4tinIZ4?access_token=EwAAA61DBAAUmcDj0azQ5tf1lkBfAvHLBzXl5ugAAS%2b5NehS2IL2yV9mQwSD7cpJ59PhiK0dgHuo5Bm%2bqgVHcdvrcvSDK9UbwSLeLDE8EQOcvhN9ACFvYVJI7jVwmEjPb5pv1stIevuWdgpMPw9hwFWm9P%2bU51/0l33HRbDtlXq3Q1hjatmTWo3TdEEa%2behLZRXtqZwuEiC0inxUG1U2V1IasL5G28kzLZnTjSVNRtd2Jo994gRBqFBBBXGBHNMpjCKmtBXGgNf8UHqnvgTuk1WsBgzJ8/ldPCZg5eLodkp1qzXQs%2bbZhTjHTWIRpEWnRSI%2b7f7tm7dZVWzbYTT0CG0ypaMJ1dQnSWe0wTJe077FjfHzpy%2bA6np5Juyc4YEDZgAACBYCZE%2bor/Df0AFmT83elRqs7QHQ5yzg5fwarp3AmMf0fbipqb/bn/u%2buG2nJi9TB5hhfUeJmyK/1C9VXul8LbbLvGa9t%2baFH/oerYmvaXTWDZV9SyldH/1O1fy39CZ7IdDZuCW8J7myTFDZMUAJmOQTHSkRsdXWZJJrw/lL%2brMT613Vo10ns0tCAGzIQJInMVmLUalqL7gMW8KZsOpyJcmzjzpaGr24zUITyPxImNXgwutHiiOokAThP3oHuF%2boEq4/12X7J884U6Zt9NIk3gkgJX75WHZDTZLiupPZwJzHGgznVlDXcViIxbi3M6TVlDKU%2bT44in%2bhxlgRkLC1duMhlULy3A1VQWozquoWjwV35v4QvjmdbBF2Pv3/SbNCwW%2bTDca6VlarhBsNjvDPSVN%2bKI3ukcsx2TTGnJ8H9ukWEIi72wiwKb3yva%2bIpW6SbW/VePWMv2kpwM/NWX/nYIRQfOnA92dPqOB0F7IuLyHwnG7FulPu/ksrVh3QAUTTef%2bU07Qj3NIKl8TSiNDUfivw48MhSY6MCrO8hjqgLty%2b7eAuO1FG5TQrVfKcFb3HtyzzXHsjdY1JBqIIC2EPOo9jLsGW%2bzU%2b1PqA6bijoPE59R/UGefG5LIrygoC
+Comandos para obter os resultados
+
+ssh silvapedro@login.dcc.ufmg.br
+meujogo1./
+_aduk3n_
+
+fiji
+ssh lbduser@150.164.2.60
+ssh silvapedro@150.164.2.60
+
+oval*
+ssh silvapedro@150.164.2.49
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/BD/web10k .
+
+cd temp
+itaparica*
+scp -r lbduser@150.164.2.6:/home/silvapedro/experimento_loss_risk/resultados-alltestfile .
+ssh lbduser@150.164.2.6
+ssh silvapedro@150.164.2.6
+
+mantaham*
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/BD/web30k/Fold1/adarank-*.csv .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-y-startpoint .
+ssh silvapedro@150.164.2.9
+nohup python -u my-exec-f4.py > info0605-web10k-dropout-commonlosses5.log &
+
+batan
+scp -r lbduser@150.164.2.56:/home/silvapedro/experimento_loss_risk/resultados-alltestfile .
+ssh lbduser@150.164.2.56
+
+sandwich 2.46
+#instalar as coisas
+
+itaparica, tasmania e sandwich, poss cuba  e outras (problamas com gpu podem ser ignorados)
+
+tasmania*
+ssh lbduser@150.164.2.43
+ssh silvapedro@150.164.2.43
+
+tsalles
+ssh silvapedro@150.164.2.55
+
+caju
+ssh silvapedro@150.164.2.15
+
+sandwich
+ssh silvapedro@150.164.2.46
+
+scp -r lbduser@150.164.2.55:/home/silvapedro/experimento_loss_risk/risk-loss-nn .
+meujogo1./
+
+
+sudo su
+cd experimento_loss_risk/risk-loss-nn/allrank/
+source venv/bin/activate
+python eval-temp2.py ../../resultados-temporary-evalaluation3/results/
+################################################################################################################################
+################################################################################################################################
+################################################################################################################################
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/results "D:\Colecoes\experimento_loss_risk\dropout-exec\web10k2"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/resultados-web10k-lmartgrisk-exec-2 "D:\Colecoes\experimento_loss_risk\neuralgrisklmart"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/resultados-web10k-dropoutgrisk-literature4 "D:\Colecoes\experimento_loss_risk\dropout-exec"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/resultados-web10k-dropoutgrisk-literature4 "D:\Colecoes\experimento_loss_risk\dropout-exec"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/resultados-web10k-multilayer "D:\Colecoes\experimento_loss_risk\multilayer"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/resultados-web10k-regularizer "D:\Colecoes\experimento_loss_risk\regularizer"
+
+scp -r silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk .
+
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp "D:\Colecoes\experimento_loss_risk"
+
+scp "D:\Projetos Códigos\PycharmProjects\risk-loss-nn\allrank\my-exec-datay.py" silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp
+scp "D:\Projetos Códigos\PycharmProjects\risk-loss-nn\allrank\my-exec-mq.py" silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp
+scp -r terralab@200.239.139.139:/home/terralab/reinaldo/tese/run "D:\Projetos Códigos\IntellijProjects\recsystem"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/5k "D:\Colecoes\BD\ml20m\usado-risk-loss"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/yahoo "D:\Colecoes\experimento_loss_risk\execucao-1703"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/ml20m "D:\Colecoes\experimento_loss_risk\execucao-1703"
+meujogo1./
+_aduk3n_
+
+################################################################################################################################
+################################################################################################################################
+################################################################################################################################
+
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-ml5k-final/results .
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-web10k-dropoutgrisk-literature4 .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-web10k-dropoutgrisk-literature5 .
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-web10k-baseline-external .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-web10k-multilayer6 .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-web10k-regularizer .
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-web10k-multilayer7 .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-mq2007-mtr-att/results resultados-mq2007-mtr-att/results/
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-datay-mtr-mlp/results resultados-datay-mtr-mlp/results/
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-datay-mtr-mlp/results resultados-datay-mtr-mlp/results/
+
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-mq2007-final-att2/results resultados-mq2007-final-att2/
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-mq2007-final-mlp2/results resultados-mq2007-final-mlp2/
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-datay-final-mlp2/results resultados-datay-final-mlp2/
+
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk//risk-loss-nn/allrank/exec-dspr-2.py .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk//risk-loss-nn/allrank/allrank/w3c.json .
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/exec-dspr-2.py  "D:\Colecoes\experimento_loss_risk"
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/w3c.json  "D:\Colecoes\experimento_loss_risk"
+
+
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-mq2007-mlp-tuned .
+scp -r lbduser@150.164.2.49:/home/silvapedro/experimento_loss_risk/resultados-datay-mlp-tuned/results resultados-datay-mlp-tuned/
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-datay-mlp-tuned/results resultados-datay-mlp-tuned2/
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/BD/ml20m/tuning70/5k .
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/grisklmart .
+scp -r lbduser@150.164.2.56:/home/silvapedro/experimento_loss_risk/resultados-yahoo-completo/results .
+scp -r lbduser@150.164.2.56:/home/silvapedro/experimento_loss_risk/resultados-web10k-completo2 .
+
+scp -r lbduser@150.164.2.9:/home/silvapedro/experimento_loss_risk/resultados-y-endpoint3-externalbaseline .
+scp -r lbduser@150.164.2.9:/home/silvapedro/experimento_loss_risk/resultados-y-endpoint-mlp-eb-2 .
+scp -r lbduser@150.164.2.9:/home/silvapedro/experimento_loss_risk/resultados-mq2007-endpoint2-externalbaseline .
+scp -r lbduser@150.164.2.9:/home/silvapedro/experimento_loss_risk/resultados-mq2007-mlp-eb-exec0 .
+
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-web10k-mlp-eb-exec0 .
+scp -r lbduser@150.164.2.43:/home/silvapedro/experimento_loss_risk/resultados-web10k-mlp-eb-exec1 .
+
+################################################################################################################################
+################################################################################################################################
+################################################################################################################################
+##################
+cd experimento_loss_risk
+cd risk-loss-nn
+cd allrank
+python3 -m venv venv
+sudo virtualenv -p python3.6 venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip install -r requirements-cont.txt
+ls
+sudo python3 -m pip install -r requirements.txt
+python3 setup.py install#não necessário
+sudo su
+source venv/bin/activate
+nohup python -u my-exec-f2.py > info0105-web10k-dropout-commonlosses2.log &
+nohup python -u my-exec-f2.py > info1106-mlp7.log &
+nohup python -u my-exec-f2-cont.py > info1106-mlp8.log &
+nohup python -u my-exec-f2.py > info0705-web10k-external-baselines2.log &
+nohup python -u my-exec-f2.py > info0605-web10k-dropout-commonlosses5.log &
+nohup python -u my-exec-f2.py > info1705-web10k-ndcg-teste3.log &
+nohup python -u my-exec-f4.py > info0605-web10k-dropout-commonlosses5.log &
+nohup python -u m.py > temp.log &
+
+nohup python -u adarank/run_adarank.py > info0705-adarank2.log &
+nohup python -u adarank/run_ada.py > info1407-adarank0.log &
+nohup python -u m.py > 01.log &
+
+nohup python -u my-exec-f3.py > info1603-yahoo-final2.log &
+nohup python -u my-exec-mq.py > info2306-tuned-mq-mlp-attention.log &
+nohup python -u my-exec-datay.py > info2306-tuned-datay-mlp.log &
+
+nohup python -u abla.py > abla.log &
+nohup python -u main-remote.py > log.log &
+
+nohup python -u my-exec-mqf.py > info2406.log &
+nohup python -u my-exec-w3.py > info0507-w3k.log &
+nohup python -u my-exec-w3.py > info1207-run.log &
+nohup python -u my-exec-w3-base.py > info1207-run.log &
+nohup python -u my-exec-testy-eb.py > info1407-start-end.log &
+nohup python -u my-exec-testmq2007-eb.py > info1507-start-end.log &
+nohup python -u my-exec-testmq2007-eb.py > info1907-start-end2.log &
+nohup python -u my-exec-w3-base.py > info1907-run.log &
+nohup python -u my-exec-w3-base2.py > info1907-run3.log &
+nohup python -u my-exec-y-mq-se.py > info1907-run4.log &
+
+nohup python -u run2007mq.py > info2007.log &
+nohup python -u run2007.py > info2007.log &
+nohup python -u run2007.py > info2007-2.log &
+
+nohup python -u my-exec-f3.py > info0503-mlfull.log &
+nohup python -u my-exec-f.py > info0303-ml10k.log &
+nohup python -u my-exec-f-tasmania.py > info1502-lambda.log &
+nohup python -u my-exec-f-tasmania-fake.py > info14-02.log &
+nohup python -u main.py > process.log &
+nohup python3 -u selec_f.py > select_features.log &
+
+nohup python -u exec-multi01.py > 2021-19-11-log2.log &
+nohup python -u exec-multi04.py > 2021-19-11-log1-2.log &
+nohup python -u exec-multi04-2.py > 2021-19-11-log2-2.log &
+
+nohup python -u exec-temp.py > 2021-25-11-temporary3.log &
+nohup python -u exec-temp2.py > 2021-25-11-temporary4.log &
+
+nohup python -u exec-temp-new1.py > 2021-26-11-temporary1.log &
+nohup python -u exec-temp-new1-1.py > 2021-26-11-temporary2.log &
+nohup python -u exec-temp-new2.py > 2021-26-11-temporary0.log &
+nohup python -u exec-temp-new2-2.py > 2021-26-11-temporary3.log &
+nohup python -u exec-temp-new3.py > 2021-26-11-temporary0.log &
+nohup python -u exec-temp-new1-cont.py > 2021-26-11-temporary0.log &
+nohup python -u exec-temp-new1-cont2.py > 2021-28-11-temporary0.log &
+nohup python -u exec-temp-new1-cont3.py > 2021-03-12-temporary0.log &
+
+nohup python -u exec-temp-new2-cont1.py > 2021-06-12-temporary0.log &
+
+nohup python -u exec-dspr.py > 2021-10-12-temporary0.log &
+
+nohup sh tm.sh > tm.sh.log &
+#######
+ssh silvapedro@150.164.2.56
+ssh silvapedro@150.164.2.57
+
+################################################################################################################################
+################################################################################################################################
+################################################################################################################################
+rm web10k/Fold1/Norm.test.txt
+rm web10k/Fold2/Norm.test.txt
+rm web10k/Fold3/Norm.test.txt
+rm web10k/Fold4/Norm.test.txt
+rm web10k/Fold5/Norm.test.txt
+
+mv y def-web10k.zip
+mkdir default-web10k
+mv def-web10k.zip default-web10k/def-web10k.zip
+cd default-web10k
+unzip def-web10k.zip
+
+cp default-web10k/Fold1/test.txt web10k/Fold1/Norm.test.txt
+cp default-web10k/Fold2/test.txt web10k/Fold2/Norm.test.txt
+cp default-web10k/Fold3/test.txt web10k/Fold3/Norm.test.txt
+cp default-web10k/Fold4/test.txt web10k/Fold4/Norm.test.txt
+cp default-web10k/Fold5/test.txt web10k/Fold5/Norm.test.txt
+
+
+tail geoRiskListnetLossfold1-2-2/metrics/evolution.test.metrics.txt
+tail geoRiskListnetLossfold1-2-3/metrics/evolution.test.metrics.txt
+tail lambdaLossfold1/metrics/evolution.test.metrics.txt
+tail listNetfold1/metrics/evolution.test.metrics.txt
+
+
+
+############################################################RECOMENDAÇÔES###############################################
+
+Steps to reserve a LBD server
+
+Check available servers in the link below.
+List of all LBD servers is available on: https://docs.google.com/spreadsheets/d/16xB0AOFiVlScPx1YAhy_4uGnanw5LXAa7MJAjyCdAjc/edit?usp=sharing
+
+2) Choose a machine that you can use accordingly to availability
+3) If you don’t a have a user in that server, you can create one. Follow the tutorial create  LBD user bellow
+3) LBD users share all machines, when somebody has a deadline this person has priority of use! So, let people know of your priorities.
+4) It is very important to update the spreadsheet when a server is allocated for use, especially with regard to the time it will remain allocated. Please keep this spreadsheet always updated to avoid any problems!
+
+Steps to create a new user on LBD servers and lab stations
+
+
+1) Log into one lab station or server with the following user:
+    - lbduser@machine_name@lbd.dcc.ufmg.br
+    - lbduser@machine_name@lbd.dcc.ufmg.br
+    - password: _aduk3n_
+
+2) Add the new user according to the following:
+    - sudo adduser username #username is the name of the user you want to create
+    - Set and confirm the new user's password at the prompt
+    - Follow the prompts to set the new user's information and confirm #no need to put whole info
+
+3) Add the new user to sudo group
+    - Use the usermod command to add the user to the sudo group with the command: usermod -aG sudo username
+
+4) Test sudo access on new user account
+    - username$ sudo command_to_run
+
+If your user is in the proper group and you entered the password correctly, the command that you issued with sudo should run with root privilege
+
+5) Log out from lbduser
+
+You are all set now!
+Welcome to LBD!
+#testar noronha .62
+.49
+.56 batan (usar o cpu no lugar do cuda) param?
+
+
+cd /home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/
+cd /home/silvapedro/experimento_loss_risk/
+sudo su
+meujogo1./
+source venv/bin/activate
+scp -r silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/allrank .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/exec-multi01.py .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/exec-multi02.py .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/exec-multi03.py .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/exec-multi04.py .
+
+nohup python -u exec-multi01.py > info0111-2021-exec-multi01.log &
+nohup python -u exec-multi02.py > info0111-2021-exec-multi02.log &
+nohup python -u exec-multi02.py > info0111-2021-exec-multi02-1.log &
+nohup python -u exec-multi03.py > info0111-2021-exec-multi03.log &
+
+nohup python -u exec-multi04.py > info0111-2021-exec-multi04-11.log &
+nohup python -u exec-multi04-2.py > info0111-2021-exec-multi04-12.log &
+
+rm exec-multi01.py
+nano exec-multi01.py
+
+rm exec-multi02.py
+nano exec-multi02.py
+
+rm exec-multi03.py
+nano exec-multi03.py
+
+rm exec-multi04.py
+nano exec-multi04.py
+
+
+zip -r temp.zip resultados-web10k-multi-drop-exec00
+zip -r temp1.zip resultados-web10k-multi-drop-exec01
+
+zip -r temp.zip resultados-web10k-multi-drop-exec00
+zip -r temp2.zip resultados-datay-multi-drop-exec00
+
+mkdir oval
+cd oval
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/temp.zip .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/temp1.zip .
+scp silvapedro@150.164.2.49:/home/silvapedro/experimento_loss_risk/temp2.zip .
+mkdir itaparica
+cd itaparica
+scp silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk/temp.zip .
+scp silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk/temp2.zip .
+mkdir manhatam
+cd manhatam
+scp silvapedro@150.164.2.9:/home/silvapedro/experimento_loss_risk/temp.zip .
+scp silvapedro@150.164.2.9:/home/silvapedro/experimento_loss_risk/temp2.zip .
+mkdir tasmania
+cd tasmania
+scp silvapedro@150.164.2.43:/home/silvapedro/experimento_loss_risk/temp.zip .
+scp silvapedro@150.164.2.43:/home/silvapedro/experimento_loss_risk/temp2.zip .
+
+scp -r silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/ "D:\Colecoes\experimento_loss_risk"
+scp silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/oval/temp2.zip "D:\Colecoes\experimento_loss_risk\temp\oval\temp2.zip"
+
+rm temp.zip
+rm temp1.zip
+rm temp2.zip
+
+zip -r temp1.zip ../../resultados-web10k-mlp-multi-drop-new01
+
+zip -r temp0.zip ../../resultados-mq2007-mlp-multi-drop-new01
+zip -r temp1.zip ../../resultados-mq2007-multi-drop-new01
+zip -r temp2.zip ../../resultados-mq2007-multi-drop-exec00
+
+zip -r temp0.zip ../../resultados-datay-mlp-multi-drop-new02
+
+zip -r dropout_and_percent.zip ../../resultados-web10k-dropout-and-num-drop-var
+zip -r dropout_and_percent1.zip resultados-web10k-dropout-and-num-drop-var
+zip -r dropout_and_percent2.zip resultados-web10k-dropout-and-num-drop-var2
+zip -r lmart3.zip ../../lmart2
+
+
+
+
+mkdir oval
+cd oval
+scp silvapedro@150.164.2.49:/home/silva"pedro/experimento_loss_risk/risk-loss-nn/allrank/temp1.zip .
+cd ..
+mkdir itaparica
+cd itaparica
+scp silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/temp0.zip .
+scp silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/temp1.zip .
+scp silvapedro@150.164.2.6:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/temp2.zip .
+cd ..
+mkdir manhatam
+cd manhatam
+scp silvapedro@150.164.2.9:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/temp0.zip .
+cd ..
+mkdir tsalles
+cd tsalles
+scp silvapedro@150.164.2.55:/home/silvapedro/experimento_loss_risk/risk-loss-nn/allrank/dropout_and_percent.zip .
+scp silvapedro@150.164.2.55:/home/silvapedro/experimento_loss_risk/dropout_and_percent2.zip .
+scp silvapedro@150.164.2.55:/home/silvapedro/experimento_loss_risk/dropout_and_percent2.zip .
+scp silvapedro@150.164.2.55:/home/silvapedro/experimento_loss_risk/lmart2.zip .
+scp silvapedro@150.164.2.55:/home/silvapedro/experimento_loss_risk/lmart3.zip .
+
+nohup sh execmart-def2.sh > info0811-lmar-run3.log &
+
+scp silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/tsalles/dropout_and_percent1.zip "D:\Colecoes\experimento_loss_risk\temp\tsalles\dropout_and_percent1.zip"
+scp silvapedro@login.dcc.ufmg.br:/home/pos/silvapedro/temp/tsalles/dropout_and_percent2.zip "D:\Colecoes\experimento_loss_risk\temp\tsalles\dropout_and_percent2.zip"

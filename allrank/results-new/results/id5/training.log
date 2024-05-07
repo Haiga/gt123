@@ -1,0 +1,713 @@
+2023-08-09 11:00:11,820 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:00:11,835 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:00:11,836 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:00:11,850 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:00:11,850 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:00:13,162 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:00:13,173 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:00:13,173 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:00:13,175 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:00:13,175 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:00:13,633 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:00:13,637 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:00:13,637 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:00:13,638 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:00:13,638 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:00:13,638 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:00:14,041 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:00:14,044 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:00:14,045 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:00:14,045 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:00:14,045 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:00:14,633 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:00:14,655 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:00:15,199 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:00:15,199 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:00:23,408 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:00:23,410 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:00:23,410 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:00:23,427 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:00:23,428 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:00:24,704 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:00:24,722 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:00:24,722 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:00:24,725 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:00:24,725 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:00:25,125 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:00:25,132 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:00:25,132 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:00:25,133 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:00:25,133 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:00:25,133 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:00:25,556 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:00:25,563 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:00:25,563 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:00:25,564 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:00:25,564 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:00:25,565 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:00:25,566 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:00:25,584 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:00:25,584 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:02:11,955 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:02:11,958 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:02:11,959 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:02:11,976 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:02:11,977 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:02:13,196 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:02:13,213 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:02:13,214 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:02:13,216 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:02:13,216 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:02:13,627 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:02:13,633 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:02:13,634 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:02:13,635 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:02:13,635 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:02:13,635 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:02:14,049 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:02:14,055 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:02:14,056 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:02:14,056 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:02:14,056 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:02:14,058 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:02:14,058 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:02:14,081 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:02:22,997 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:21:37,023 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:21:37,025 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:21:37,025 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:21:37,041 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:21:37,041 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:21:38,209 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:21:38,229 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:21:38,229 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:21:38,231 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:21:38,232 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:21:38,636 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:21:38,642 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:21:38,642 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:21:38,643 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:21:38,643 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:21:38,644 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:21:39,025 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:21:39,031 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:21:39,031 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:21:39,032 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:21:39,033 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:21:39,034 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:21:39,034 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:21:39,053 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:21:42,643 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:24:05,748 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:24:05,751 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:24:05,751 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:24:05,763 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:24:05,763 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:24:06,900 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:24:06,917 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:24:06,917 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:24:06,919 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:24:06,920 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:24:07,305 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:24:07,311 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:24:07,311 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:24:07,312 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:24:07,313 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:24:07,313 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:24:07,698 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:24:07,704 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:24:07,704 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:24:07,723 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:24:07,723 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:24:07,725 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:24:07,725 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:24:07,744 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:24:09,394 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:26:32,080 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:26:32,081 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:26:32,081 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:26:32,093 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:26:32,093 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:26:33,237 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:26:33,247 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:26:33,247 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:26:33,249 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:26:33,249 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:26:33,626 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:26:33,629 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:26:33,629 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:26:33,630 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:26:33,630 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:26:33,630 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:26:34,003 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:26:34,006 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:26:34,006 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:26:34,007 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:26:34,007 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:26:34,008 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:26:34,008 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:26:34,014 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:26:34,015 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:33:21,372 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:33:21,373 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:33:21,373 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:33:21,384 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:33:21,384 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:33:22,607 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:33:22,617 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:33:22,617 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:33:22,619 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:33:22,619 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:33:23,022 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:33:23,025 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:33:23,025 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:33:23,026 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:33:23,026 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:33:23,026 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:33:23,421 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:33:23,424 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:33:23,424 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:33:23,425 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:33:23,425 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:33:23,426 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:33:23,426 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:33:23,432 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:33:23,493 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:38:32,219 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:38:32,219 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:38:32,220 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:38:32,230 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:38:32,230 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:38:33,362 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:38:33,371 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:38:33,371 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:38:33,373 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:38:33,373 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:38:33,743 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:38:33,746 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:38:33,746 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:38:33,747 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:38:33,747 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:38:33,747 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:38:34,120 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:38:34,123 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:38:34,123 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:38:34,124 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:38:34,124 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:38:34,125 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:38:34,125 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:38:34,131 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:38:34,131 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:46:01,970 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:46:01,971 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:46:01,971 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:46:01,982 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:46:01,982 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:46:03,120 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:46:03,129 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:46:03,129 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:46:03,131 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:46:03,131 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:46:03,502 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:46:03,505 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:46:03,505 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:46:03,506 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:46:03,506 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:46:03,506 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:46:03,873 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:46:03,876 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:46:03,876 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:46:03,876 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:46:03,877 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:46:03,877 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:46:03,878 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:46:03,884 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:46:03,884 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:47:43,453 - allrank.utils.ltr_logging - INFO - Epoch : 0 Train loss: -2.922687657111514 Val loss: -3.068600302952229 Train ndcg_5 0.20472413301467896 Train ndcg_10 0.2343382090330124 Train lndcg_5 0.2246762067079544 Train lndcg_10 0.2525342106819153 Train lndcg1_5 0.36243578791618347 Train lndcg1_10 0.3995681405067444 Train ndcg1_5 0.35485291481018066 Train ndcg1_10 0.3859758973121643 Train georisk_10 0.3308221399784088 Val ndcg_5 0.21895992755889893 Val ndcg_10 0.2583490014076233 Val lndcg_5 0.22852255403995514 Val lndcg_10 0.26623865962028503 Val lndcg1_5 0.35831618309020996 Val lndcg1_10 0.3960321843624115 Val ndcg1_5 0.34875357151031494 Val ndcg1_10 0.38814255595207214 Val georisk_10 0.32743313908576965
+2023-08-09 11:47:43,453 - allrank.utils.ltr_logging - INFO - Current:0.2583490014076233 Best:0.0
+2023-08-09 11:47:46,126 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741} 
+2023-08-09 11:47:46,126 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:49:24,587 - allrank.utils.ltr_logging - INFO - Epoch : 1 Train loss: -3.168634612065618 Val loss: -3.1042580231804413 Train ndcg_5 0.2316441833972931 Train ndcg_10 0.265419602394104 Train lndcg_5 0.24524468183517456 Train lndcg_10 0.2718597650527954 Train lndcg1_5 0.38808920979499817 Train lndcg1_10 0.4133816063404083 Train ndcg1_5 0.3743947446346283 Train ndcg1_10 0.40291428565979004 Train georisk_10 0.3430671989917755 Val ndcg_5 0.26170751452445984 Val ndcg_10 0.3035166561603546 Val lndcg_5 0.2729964852333069 Val lndcg_10 0.3130899965763092 Val lndcg1_5 0.40279003977775574 Val lndcg1_10 0.44288334250450134 Val ndcg1_5 0.3915010392665863 Val ndcg1_10 0.4333100914955139 Val georisk_10 0.35096991062164307
+2023-08-09 11:49:24,590 - allrank.utils.ltr_logging - INFO - Current:0.3035166561603546 Best:0.2583490014076233
+2023-08-09 11:49:27,491 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845} 
+2023-08-09 11:49:27,491 - allrank.utils.ltr_logging - INFO - Ending execution. Train Losses:
+[-2.922687657111514, -3.168634612065618]
+2023-08-09 11:49:27,491 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Losses (not used to train):
+[-3.068600302952229, -3.1042580231804413]
+2023-08-09 11:49:27,491 - allrank.utils.ltr_logging - INFO - Ending execution. Train Metrics Evolution:
+[{'ndcg_5': 0.20472413, 'ndcg_10': 0.23433821, 'lndcg_5': 0.2246762, 'lndcg_10': 0.2525342, 'lndcg1_5': 0.3624358, 'lndcg1_10': 0.39956814, 'ndcg1_5': 0.3548529, 'ndcg1_10': 0.3859759, 'georisk_10': 0.33082214}, {'ndcg_5': 0.23164418, 'ndcg_10': 0.2654196, 'lndcg_5': 0.24524468, 'lndcg_10': 0.27185977, 'lndcg1_5': 0.3880892, 'lndcg1_10': 0.4133816, 'ndcg1_5': 0.37439474, 'ndcg1_10': 0.4029143, 'georisk_10': 0.3430672}]
+2023-08-09 11:49:27,492 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Metrics Evolution:
+[{'ndcg_5': 0.21895993, 'ndcg_10': 0.258349, 'lndcg_5': 0.22852255, 'lndcg_10': 0.26623866, 'lndcg1_5': 0.35831618, 'lndcg1_10': 0.39603218, 'ndcg1_5': 0.34875357, 'ndcg1_10': 0.38814256, 'georisk_10': 0.32743314}, {'ndcg_5': 0.2617075, 'ndcg_10': 0.30351666, 'lndcg_5': 0.2729965, 'lndcg_10': 0.31309, 'lndcg1_5': 0.40279004, 'lndcg1_10': 0.44288334, 'ndcg1_5': 0.39150104, 'ndcg1_10': 0.4333101, 'georisk_10': 0.3509699}]
+2023-08-09 11:49:27,492 - allrank.utils.ltr_logging - INFO - Ending execution. Test Metrics Evolution:
+[{'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741}, {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845}]
+2023-08-09 11:53:23,672 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:53:23,676 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:53:23,676 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:53:23,687 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:53:23,687 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:53:24,846 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:53:24,864 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:53:24,865 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:53:24,867 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:53:24,867 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:53:25,241 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:53:25,246 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:53:25,247 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:53:25,247 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:53:25,248 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:53:25,248 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:53:25,624 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:53:25,629 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:53:25,629 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:53:25,630 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:53:25,631 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:53:25,632 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:53:25,633 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:53:25,650 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:53:25,651 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:56:10,264 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:56:10,266 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:56:10,266 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:56:10,277 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:56:10,278 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:56:11,897 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:56:11,918 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:56:11,918 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:56:11,920 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:56:11,921 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:56:12,307 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:56:12,313 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:56:12,313 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:56:12,314 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:56:12,314 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:56:12,315 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:56:12,691 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:56:12,697 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:56:12,697 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:56:12,698 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:56:12,698 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:56:12,700 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:56:12,700 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:56:12,719 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:56:12,719 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 11:59:01,609 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 11:59:01,610 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=2, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 11:59:01,610 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 11:59:01,621 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 11:59:01,621 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 11:59:02,760 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 11:59:02,770 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 11:59:02,770 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 11:59:02,772 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 11:59:02,772 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 11:59:03,145 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 11:59:03,148 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 11:59:03,148 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 11:59:03,149 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 11:59:03,149 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 11:59:03,149 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 11:59:03,524 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 11:59:03,527 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 11:59:03,527 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 11:59:03,528 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 11:59:03,528 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 11:59:03,530 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 11:59:03,530 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 11:59:03,536 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 11:59:03,536 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:00:43,163 - allrank.utils.ltr_logging - INFO - Epoch : 0 Train loss: -2.922687657111514 Val loss: -3.068600302952229 Train ndcg_5 0.20472413301467896 Train ndcg_10 0.2343382090330124 Train lndcg_5 0.2246762067079544 Train lndcg_10 0.2525342106819153 Train lndcg1_5 0.36243578791618347 Train lndcg1_10 0.3995681405067444 Train ndcg1_5 0.35485291481018066 Train ndcg1_10 0.3859758973121643 Train georisk_10 0.3308221399784088 Val ndcg_5 0.21895992755889893 Val ndcg_10 0.2583490014076233 Val lndcg_5 0.22852255403995514 Val lndcg_10 0.26623865962028503 Val lndcg1_5 0.35831618309020996 Val lndcg1_10 0.3960321843624115 Val ndcg1_5 0.34875357151031494 Val ndcg1_10 0.38814255595207214 Val georisk_10 0.32743313908576965
+2023-08-09 12:00:43,163 - allrank.utils.ltr_logging - INFO - Current:0.2583490014076233 Best:0.0
+2023-08-09 12:00:45,750 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741} 
+2023-08-09 12:00:45,750 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:02:23,545 - allrank.utils.ltr_logging - INFO - Epoch : 1 Train loss: -3.168634612065618 Val loss: -3.1042580231804413 Train ndcg_5 0.2316441833972931 Train ndcg_10 0.265419602394104 Train lndcg_5 0.24524468183517456 Train lndcg_10 0.2718597650527954 Train lndcg1_5 0.38808920979499817 Train lndcg1_10 0.4133816063404083 Train ndcg1_5 0.3743947446346283 Train ndcg1_10 0.40291428565979004 Train georisk_10 0.3430671989917755 Val ndcg_5 0.26170751452445984 Val ndcg_10 0.3035166561603546 Val lndcg_5 0.2729964852333069 Val lndcg_10 0.3130899965763092 Val lndcg1_5 0.40279003977775574 Val lndcg1_10 0.44288334250450134 Val ndcg1_5 0.3915010392665863 Val ndcg1_10 0.4333100914955139 Val georisk_10 0.35096991062164307
+2023-08-09 12:02:23,549 - allrank.utils.ltr_logging - INFO - Current:0.3035166561603546 Best:0.2583490014076233
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845} 
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - Ending execution. Train Losses:
+[-2.922687657111514, -3.168634612065618]
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Losses (not used to train):
+[-3.068600302952229, -3.1042580231804413]
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - Ending execution. Train Metrics Evolution:
+[{'ndcg_5': 0.20472413, 'ndcg_10': 0.23433821, 'lndcg_5': 0.2246762, 'lndcg_10': 0.2525342, 'lndcg1_5': 0.3624358, 'lndcg1_10': 0.39956814, 'ndcg1_5': 0.3548529, 'ndcg1_10': 0.3859759, 'georisk_10': 0.33082214}, {'ndcg_5': 0.23164418, 'ndcg_10': 0.2654196, 'lndcg_5': 0.24524468, 'lndcg_10': 0.27185977, 'lndcg1_5': 0.3880892, 'lndcg1_10': 0.4133816, 'ndcg1_5': 0.37439474, 'ndcg1_10': 0.4029143, 'georisk_10': 0.3430672}]
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Metrics Evolution:
+[{'ndcg_5': 0.21895993, 'ndcg_10': 0.258349, 'lndcg_5': 0.22852255, 'lndcg_10': 0.26623866, 'lndcg1_5': 0.35831618, 'lndcg1_10': 0.39603218, 'ndcg1_5': 0.34875357, 'ndcg1_10': 0.38814256, 'georisk_10': 0.32743314}, {'ndcg_5': 0.2617075, 'ndcg_10': 0.30351666, 'lndcg_5': 0.2729965, 'lndcg_10': 0.31309, 'lndcg1_5': 0.40279004, 'lndcg1_10': 0.44288334, 'ndcg1_5': 0.39150104, 'ndcg1_10': 0.4333101, 'georisk_10': 0.3509699}]
+2023-08-09 12:02:26,446 - allrank.utils.ltr_logging - INFO - Ending execution. Test Metrics Evolution:
+[{'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741}, {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845}]
+2023-08-09 12:12:57,549 - allrank.utils.ltr_logging - INFO - created paths container PathsContainer(local_base_output_path='results-new/', base_output_path='results-new/', output_dir='results-new/results\\id5', tensorboard_output_path='results-new/tb_evals\\single\\id5', config_path='localtemp_config.json')
+2023-08-09 12:12:57,550 - allrank.utils.ltr_logging - INFO - Config:
+ {'click_model': None,
+ 'data': DataConfig(path='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1', num_workers=0, batch_size=20, slate_length=100, validation_ds_role='vali'),
+ 'detect_anomaly': True,
+ 'expected_metrics': {'val': {'georisk_10': 0.0,
+                              'lndcg_10': 0.0,
+                              'lndcg_5': 0.0,
+                              'ndcg_10': 0.0,
+                              'ndcg_5': 0.0}},
+ 'loss': NameArgsConfig(name='spearmanLossmulti', args={}),
+ 'lr_scheduler': NameArgsConfig(name=None, args={'step_size': 800, 'gamma': 0.5}),
+ 'metrics': defaultdict(<class 'list'>,
+                        {'georisk': [10],
+                         'lndcg': [5,
+                                   10],
+                         'lndcg1': [5,
+                                    10],
+                         'ndcg': [5,
+                                  10],
+                         'ndcg1': [5,
+                                   10]}),
+ 'model': ModelConfig(fc_model={}, transformer=TransformerConfig(N=2, d_ff=64, h=2, positional_encoding=None, dropout=0.3), post_model={'output_activation': 'Sigmoid', 'd_output': 1}),
+ 'optimizer': NameArgsConfig(name='Adam', args={'lr': 0.0001}),
+ 'training': TrainingConfig(epochs=10, gradient_clipping_norm=None, early_stopping_patience=100),
+ 'val_metric': 'ndcg_10'}
+2023-08-09 12:12:57,550 - allrank.utils.ltr_logging - INFO - will execute copy "localtemp_config.json" "results-new/results\id5\used_config.json"
+2023-08-09 12:12:57,562 - allrank.utils.ltr_logging - INFO - exit_code = 0
+2023-08-09 12:12:57,562 - allrank.utils.ltr_logging - INFO - will load train data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.train.txt
+2023-08-09 12:12:58,722 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.train.txt'> and got x shape (42158, 46), y shape (42158,) and query_ids shape (42158,)
+2023-08-09 12:12:58,731 - allrank.utils.ltr_logging - INFO - loaded dataset with 1017 queries
+2023-08-09 12:12:58,731 - allrank.utils.ltr_logging - INFO - longest query had 147 documents
+2023-08-09 12:12:58,733 - allrank.utils.ltr_logging - INFO - train DS shape: [1017, 147, 46]
+2023-08-09 12:12:58,733 - allrank.utils.ltr_logging - INFO - will load vali data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.vali.txt
+2023-08-09 12:12:59,115 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.vali.txt'> and got x shape (13813, 46), y shape (13813,) and query_ids shape (13813,)
+2023-08-09 12:12:59,118 - allrank.utils.ltr_logging - INFO - loaded dataset with 339 queries
+2023-08-09 12:12:59,118 - allrank.utils.ltr_logging - INFO - longest query had 88 documents
+2023-08-09 12:12:59,119 - allrank.utils.ltr_logging - INFO - vali DS shape: [339, 88, 46]
+2023-08-09 12:12:59,119 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 88
+2023-08-09 12:12:59,119 - allrank.utils.ltr_logging - INFO - will load test data from D:\Colecoes\BD\MQ2007\MQ2007\Fold1\Norm.test.txt
+2023-08-09 12:12:59,490 - allrank.utils.ltr_logging - INFO - loaded dataset from <_io.BufferedReader name='D:\\Colecoes\\BD\\MQ2007\\MQ2007\\Fold1\\Norm.test.txt'> and got x shape (13652, 46), y shape (13652,) and query_ids shape (13652,)
+2023-08-09 12:12:59,493 - allrank.utils.ltr_logging - INFO - loaded dataset with 336 queries
+2023-08-09 12:12:59,494 - allrank.utils.ltr_logging - INFO - longest query had 80 documents
+2023-08-09 12:12:59,494 - allrank.utils.ltr_logging - INFO - test DS shape: [336, 80, 46]
+2023-08-09 12:12:59,494 - allrank.utils.ltr_logging - INFO - Will pad to the longest slate: 80
+2023-08-09 12:12:59,495 - allrank.utils.ltr_logging - INFO - total batch size is 20
+2023-08-09 12:12:59,495 - allrank.utils.ltr_logging - INFO - Model training will execute on cpu
+2023-08-09 12:12:59,501 - allrank.utils.ltr_logging - INFO - Model has 29799 trainable parameters
+2023-08-09 12:12:59,502 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:14:48,858 - allrank.utils.ltr_logging - INFO - Epoch : 0 Train loss: -2.922687657111514 Val loss: -3.068600302952229 Train ndcg_5 0.20472413301467896 Train ndcg_10 0.2343382090330124 Train lndcg_5 0.2246762067079544 Train lndcg_10 0.2525342106819153 Train lndcg1_5 0.36243578791618347 Train lndcg1_10 0.3995681405067444 Train ndcg1_5 0.35485291481018066 Train ndcg1_10 0.3859758973121643 Train georisk_10 0.3308221399784088 Val ndcg_5 0.21895992755889893 Val ndcg_10 0.2583490014076233 Val lndcg_5 0.22852255403995514 Val lndcg_10 0.26623865962028503 Val lndcg1_5 0.35831618309020996 Val lndcg1_10 0.3960321843624115 Val ndcg1_5 0.34875357151031494 Val ndcg1_10 0.38814255595207214 Val georisk_10 0.32743313908576965
+2023-08-09 12:14:48,858 - allrank.utils.ltr_logging - INFO - Current:0.2583490014076233 Best:0.0
+2023-08-09 12:14:51,483 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741} 
+2023-08-09 12:14:51,483 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:16:41,137 - allrank.utils.ltr_logging - INFO - Epoch : 1 Train loss: -3.168634612065618 Val loss: -3.1042580231804413 Train ndcg_5 0.2316441833972931 Train ndcg_10 0.265419602394104 Train lndcg_5 0.24524468183517456 Train lndcg_10 0.2718597650527954 Train lndcg1_5 0.38808920979499817 Train lndcg1_10 0.4133816063404083 Train ndcg1_5 0.3743947446346283 Train ndcg1_10 0.40291428565979004 Train georisk_10 0.3430671989917755 Val ndcg_5 0.26170751452445984 Val ndcg_10 0.3035166561603546 Val lndcg_5 0.2729964852333069 Val lndcg_10 0.3130899965763092 Val lndcg1_5 0.40279003977775574 Val lndcg1_10 0.44288334250450134 Val ndcg1_5 0.3915010392665863 Val ndcg1_10 0.4333100914955139 Val georisk_10 0.35096991062164307
+2023-08-09 12:16:41,138 - allrank.utils.ltr_logging - INFO - Current:0.3035166561603546 Best:0.2583490014076233
+2023-08-09 12:16:43,681 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845} 
+2023-08-09 12:16:43,681 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:18:32,338 - allrank.utils.ltr_logging - INFO - Epoch : 2 Train loss: -3.595741892517375 Val loss: -4.41964367638647 Train ndcg_5 0.2446931153535843 Train ndcg_10 0.2826341390609741 Train lndcg_5 0.2734840512275696 Train lndcg_10 0.29730451107025146 Train lndcg1_5 0.408226877450943 Train lndcg1_10 0.4320261776447296 Train ndcg1_5 0.39540040493011475 Train ndcg1_10 0.43028339743614197 Train georisk_10 0.3583067059516907 Val ndcg_5 0.29487329721450806 Val ndcg_10 0.32291656732559204 Val lndcg_5 0.30799558758735657 Val lndcg_10 0.33514419198036194 Val lndcg1_5 0.43778929114341736 Val lndcg1_10 0.4649377763271332 Val ndcg1_5 0.4246669411659241 Val ndcg1_10 0.45270994305610657 Val georisk_10 0.3573789894580841
+2023-08-09 12:18:32,340 - allrank.utils.ltr_logging - INFO - Current:0.32291656732559204 Best:0.3035166561603546
+2023-08-09 12:18:35,206 - allrank.utils.ltr_logging - INFO - MY-flag writted predictions - because model is best on validation. Test metrics: {'ndcg_5': 0.3082975883179037, 'ndcg_10': 0.3415604219943455, 'lndcg_5': 0.3231972181466296, 'lndcg_10': 0.35324735662847173, 'lndcg1_5': 0.4601019800513915, 'lndcg1_10': 0.49015211853323365, 'ndcg1_5': 0.44520235022266563, 'ndcg1_10': 0.4784651838991074} 
+2023-08-09 12:18:35,206 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:20:23,685 - allrank.utils.ltr_logging - INFO - Epoch : 3 Train loss: -4.35964106435035 Val loss: -4.6335875980973595 Train ndcg_5 0.24606816470623016 Train ndcg_10 0.27473464608192444 Train lndcg_5 0.25767046213150024 Train lndcg_10 0.2887425124645233 Train lndcg1_5 0.4055324196815491 Train lndcg1_10 0.4306727349758148 Train ndcg1_5 0.3915785551071167 Train ndcg1_10 0.4205734133720398 Train georisk_10 0.34977665543556213 Val ndcg_5 0.2853319048881531 Val ndcg_10 0.3161172568798065 Val lndcg_5 0.298063188791275 Val lndcg_10 0.3270880877971649 Val lndcg1_5 0.42785677313804626 Val lndcg1_10 0.45688164234161377 Val ndcg1_5 0.4151255190372467 Val ndcg1_10 0.44591087102890015 Val georisk_10 0.3542378544807434
+2023-08-09 12:20:23,688 - allrank.utils.ltr_logging - INFO - Current:0.3161172568798065 Best:0.32291656732559204
+2023-08-09 12:20:26,563 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:22:14,759 - allrank.utils.ltr_logging - INFO - Epoch : 4 Train loss: -4.577962276623781 Val loss: -4.71146583416469 Train ndcg_5 0.23968566954135895 Train ndcg_10 0.27225103974342346 Train lndcg_5 0.2597002387046814 Train lndcg_10 0.28604841232299805 Train lndcg1_5 0.39787745475769043 Train lndcg1_10 0.4286051392555237 Train ndcg1_5 0.39278456568717957 Train ndcg1_10 0.4178580045700073 Train georisk_10 0.34908002614974976 Val ndcg_5 0.2698805034160614 Val ndcg_10 0.30366116762161255 Val lndcg_5 0.2815125584602356 Val lndcg_10 0.31444478034973145 Val lndcg1_5 0.41130614280700684 Val lndcg1_10 0.4442381262779236 Val ndcg1_5 0.39967405796051025 Val ndcg1_10 0.4334544837474823 Val georisk_10 0.34710922837257385
+2023-08-09 12:22:14,760 - allrank.utils.ltr_logging - INFO - Current:0.30366116762161255 Best:0.32291656732559204
+2023-08-09 12:22:17,581 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:24:05,669 - allrank.utils.ltr_logging - INFO - Epoch : 5 Train loss: -4.671281899440019 Val loss: -4.762983218055208 Train ndcg_5 0.24599704146385193 Train ndcg_10 0.275255024433136 Train lndcg_5 0.24838034808635712 Train lndcg_10 0.27644914388656616 Train lndcg1_5 0.39686256647109985 Train lndcg1_10 0.427217036485672 Train ndcg1_5 0.3793880343437195 Train ndcg1_10 0.4118056893348694 Train georisk_10 0.3481743037700653 Val ndcg_5 0.25830361247062683 Val ndcg_10 0.29350513219833374 Val lndcg_5 0.26978522539138794 Val lndcg_10 0.3038156032562256 Val lndcg1_5 0.3995788097381592 Val lndcg1_10 0.43360915780067444 Val ndcg1_5 0.3880971670150757 Val ndcg1_10 0.423298716545105 Val georisk_10 0.340664267539978
+2023-08-09 12:24:05,672 - allrank.utils.ltr_logging - INFO - Current:0.29350513219833374 Best:0.32291656732559204
+2023-08-09 12:24:08,471 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:25:56,486 - allrank.utils.ltr_logging - INFO - Epoch : 6 Train loss: -4.729376873552741 Val loss: -4.799820776182641 Train ndcg_5 0.24392130970954895 Train ndcg_10 0.27261579036712646 Train lndcg_5 0.2513370215892792 Train lndcg_10 0.27946925163269043 Train lndcg1_5 0.3979829251766205 Train lndcg1_10 0.42654523253440857 Train ndcg1_5 0.3857458829879761 Train ndcg1_10 0.4165506958961487 Train georisk_10 0.3484928607940674 Val ndcg_5 0.25753602385520935 Val ndcg_10 0.2877214252948761 Val lndcg_5 0.26849499344825745 Val lndcg_10 0.29812315106391907 Val lndcg1_5 0.3982885479927063 Val lndcg1_10 0.42791667580604553 Val ndcg1_5 0.3873295187950134 Val ndcg1_10 0.4175148904323578 Val georisk_10 0.3360506296157837
+2023-08-09 12:25:56,487 - allrank.utils.ltr_logging - INFO - Current:0.2877214252948761 Best:0.32291656732559204
+2023-08-09 12:25:59,285 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:27:46,881 - allrank.utils.ltr_logging - INFO - Epoch : 7 Train loss: -4.767430849834881 Val loss: -4.821794365007968 Train ndcg_5 0.23766735196113586 Train ndcg_10 0.2704983949661255 Train lndcg_5 0.24113933742046356 Train lndcg_10 0.27110061049461365 Train lndcg1_5 0.3966227173805237 Train lndcg1_10 0.4235365688800812 Train ndcg1_5 0.37982890009880066 Train ndcg1_10 0.41091838479042053 Train georisk_10 0.3470214903354645 Val ndcg_5 0.2546226680278778 Val ndcg_10 0.2856668531894684 Val lndcg_5 0.2653179168701172 Val lndcg_10 0.2957676947116852 Val lndcg1_5 0.39511141180992126 Val lndcg1_10 0.4255612790584564 Val ndcg1_5 0.3844161927700043 Val ndcg1_10 0.4154603183269501 Val georisk_10 0.3364218473434448
+2023-08-09 12:27:46,883 - allrank.utils.ltr_logging - INFO - Current:0.2856668531894684 Best:0.32291656732559204
+2023-08-09 12:27:49,536 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:29:37,505 - allrank.utils.ltr_logging - INFO - Epoch : 8 Train loss: -4.795997228594304 Val loss: -4.836532288947992 Train ndcg_5 0.23722371459007263 Train ndcg_10 0.26936617493629456 Train lndcg_5 0.24576839804649353 Train lndcg_10 0.27752485871315 Train lndcg1_5 0.399033784866333 Train lndcg1_10 0.42808589339256287 Train ndcg1_5 0.37206941843032837 Train ndcg1_10 0.4051608145236969 Train georisk_10 0.34447991847991943 Val ndcg_5 0.24575643241405487 Val ndcg_10 0.281896710395813 Val lndcg_5 0.25668859481811523 Val lndcg_10 0.2919178307056427 Val lndcg1_5 0.3864820897579193 Val lndcg1_10 0.4217112958431244 Val ndcg1_5 0.37554994225502014 Val ndcg1_10 0.41169023513793945 Val georisk_10 0.33540645241737366
+2023-08-09 12:29:37,505 - allrank.utils.ltr_logging - INFO - Current:0.281896710395813 Best:0.32291656732559204
+2023-08-09 12:29:39,955 - allrank.utils.ltr_logging - INFO - Current learning rate: 0.0001
+2023-08-09 12:31:27,723 - allrank.utils.ltr_logging - INFO - Epoch : 9 Train loss: -4.816336967483266 Val loss: -4.848622313642924 Train ndcg_5 0.2364087998867035 Train ndcg_10 0.26593586802482605 Train lndcg_5 0.2500608563423157 Train lndcg_10 0.28005778789520264 Train lndcg1_5 0.39226675033569336 Train lndcg1_10 0.4222387671470642 Train ndcg1_5 0.37714889645576477 Train ndcg1_10 0.40971067547798157 Train georisk_10 0.3485676348209381 Val ndcg_5 0.24415507912635803 Val ndcg_10 0.2786882519721985 Val lndcg_5 0.25515908002853394 Val lndcg_10 0.28877317905426025 Val lndcg1_5 0.3849526047706604 Val lndcg1_10 0.4185667335987091 Val ndcg1_5 0.3739486038684845 Val ndcg1_10 0.4084818363189697 Val georisk_10 0.33177798986434937
+2023-08-09 12:31:27,724 - allrank.utils.ltr_logging - INFO - Current:0.2786882519721985 Best:0.32291656732559204
+2023-08-09 12:31:30,168 - allrank.utils.ltr_logging - INFO - Ending execution. Train Losses:
+[-2.922687657111514, -3.168634612065618, -3.595741892517375, -4.35964106435035, -4.577962276623781, -4.671281899440019, -4.729376873552741, -4.767430849834881, -4.795997228594304, -4.816336967483266]
+2023-08-09 12:31:30,168 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Losses (not used to train):
+[-3.068600302952229, -3.1042580231804413, -4.41964367638647, -4.6335875980973595, -4.71146583416469, -4.762983218055208, -4.799820776182641, -4.821794365007968, -4.836532288947992, -4.848622313642924]
+2023-08-09 12:31:30,168 - allrank.utils.ltr_logging - INFO - Ending execution. Train Metrics Evolution:
+[{'ndcg_5': 0.20472413, 'ndcg_10': 0.23433821, 'lndcg_5': 0.2246762, 'lndcg_10': 0.2525342, 'lndcg1_5': 0.3624358, 'lndcg1_10': 0.39956814, 'ndcg1_5': 0.3548529, 'ndcg1_10': 0.3859759, 'georisk_10': 0.33082214}, {'ndcg_5': 0.23164418, 'ndcg_10': 0.2654196, 'lndcg_5': 0.24524468, 'lndcg_10': 0.27185977, 'lndcg1_5': 0.3880892, 'lndcg1_10': 0.4133816, 'ndcg1_5': 0.37439474, 'ndcg1_10': 0.4029143, 'georisk_10': 0.3430672}, {'ndcg_5': 0.24469312, 'ndcg_10': 0.28263414, 'lndcg_5': 0.27348405, 'lndcg_10': 0.2973045, 'lndcg1_5': 0.40822688, 'lndcg1_10': 0.43202618, 'ndcg1_5': 0.3954004, 'ndcg1_10': 0.4302834, 'georisk_10': 0.3583067}, {'ndcg_5': 0.24606816, 'ndcg_10': 0.27473465, 'lndcg_5': 0.25767046, 'lndcg_10': 0.2887425, 'lndcg1_5': 0.40553242, 'lndcg1_10': 0.43067273, 'ndcg1_5': 0.39157856, 'ndcg1_10': 0.4205734, 'georisk_10': 0.34977666}, {'ndcg_5': 0.23968567, 'ndcg_10': 0.27225104, 'lndcg_5': 0.25970024, 'lndcg_10': 0.2860484, 'lndcg1_5': 0.39787745, 'lndcg1_10': 0.42860514, 'ndcg1_5': 0.39278457, 'ndcg1_10': 0.417858, 'georisk_10': 0.34908003}, {'ndcg_5': 0.24599704, 'ndcg_10': 0.27525502, 'lndcg_5': 0.24838035, 'lndcg_10': 0.27644914, 'lndcg1_5': 0.39686257, 'lndcg1_10': 0.42721704, 'ndcg1_5': 0.37938803, 'ndcg1_10': 0.4118057, 'georisk_10': 0.3481743}, {'ndcg_5': 0.24392131, 'ndcg_10': 0.2726158, 'lndcg_5': 0.25133702, 'lndcg_10': 0.27946925, 'lndcg1_5': 0.39798293, 'lndcg1_10': 0.42654523, 'ndcg1_5': 0.38574588, 'ndcg1_10': 0.4165507, 'georisk_10': 0.34849286}, {'ndcg_5': 0.23766735, 'ndcg_10': 0.2704984, 'lndcg_5': 0.24113934, 'lndcg_10': 0.2711006, 'lndcg1_5': 0.39662272, 'lndcg1_10': 0.42353657, 'ndcg1_5': 0.3798289, 'ndcg1_10': 0.41091838, 'georisk_10': 0.3470215}, {'ndcg_5': 0.23722371, 'ndcg_10': 0.26936617, 'lndcg_5': 0.2457684, 'lndcg_10': 0.27752486, 'lndcg1_5': 0.39903378, 'lndcg1_10': 0.4280859, 'ndcg1_5': 0.37206942, 'ndcg1_10': 0.4051608, 'georisk_10': 0.34447992}, {'ndcg_5': 0.2364088, 'ndcg_10': 0.26593587, 'lndcg_5': 0.25006086, 'lndcg_10': 0.2800578, 'lndcg1_5': 0.39226675, 'lndcg1_10': 0.42223877, 'ndcg1_5': 0.3771489, 'ndcg1_10': 0.40971068, 'georisk_10': 0.34856763}]
+2023-08-09 12:31:30,168 - allrank.utils.ltr_logging - INFO - Ending execution. Validation Metrics Evolution:
+[{'ndcg_5': 0.21895993, 'ndcg_10': 0.258349, 'lndcg_5': 0.22852255, 'lndcg_10': 0.26623866, 'lndcg1_5': 0.35831618, 'lndcg1_10': 0.39603218, 'ndcg1_5': 0.34875357, 'ndcg1_10': 0.38814256, 'georisk_10': 0.32743314}, {'ndcg_5': 0.2617075, 'ndcg_10': 0.30351666, 'lndcg_5': 0.2729965, 'lndcg_10': 0.31309, 'lndcg1_5': 0.40279004, 'lndcg1_10': 0.44288334, 'ndcg1_5': 0.39150104, 'ndcg1_10': 0.4333101, 'georisk_10': 0.3509699}, {'ndcg_5': 0.2948733, 'ndcg_10': 0.32291657, 'lndcg_5': 0.3079956, 'lndcg_10': 0.3351442, 'lndcg1_5': 0.4377893, 'lndcg1_10': 0.46493778, 'ndcg1_5': 0.42466694, 'ndcg1_10': 0.45270994, 'georisk_10': 0.357379}, {'ndcg_5': 0.2853319, 'ndcg_10': 0.31611726, 'lndcg_5': 0.2980632, 'lndcg_10': 0.3270881, 'lndcg1_5': 0.42785677, 'lndcg1_10': 0.45688164, 'ndcg1_5': 0.41512552, 'ndcg1_10': 0.44591087, 'georisk_10': 0.35423785}, {'ndcg_5': 0.2698805, 'ndcg_10': 0.30366117, 'lndcg_5': 0.28151256, 'lndcg_10': 0.31444478, 'lndcg1_5': 0.41130614, 'lndcg1_10': 0.44423813, 'ndcg1_5': 0.39967406, 'ndcg1_10': 0.43345448, 'georisk_10': 0.34710923}, {'ndcg_5': 0.2583036, 'ndcg_10': 0.29350513, 'lndcg_5': 0.26978523, 'lndcg_10': 0.3038156, 'lndcg1_5': 0.3995788, 'lndcg1_10': 0.43360916, 'ndcg1_5': 0.38809717, 'ndcg1_10': 0.42329872, 'georisk_10': 0.34066427}, {'ndcg_5': 0.25753602, 'ndcg_10': 0.28772143, 'lndcg_5': 0.268495, 'lndcg_10': 0.29812315, 'lndcg1_5': 0.39828855, 'lndcg1_10': 0.42791668, 'ndcg1_5': 0.38732952, 'ndcg1_10': 0.4175149, 'georisk_10': 0.33605063}, {'ndcg_5': 0.25462267, 'ndcg_10': 0.28566685, 'lndcg_5': 0.26531792, 'lndcg_10': 0.2957677, 'lndcg1_5': 0.3951114, 'lndcg1_10': 0.42556128, 'ndcg1_5': 0.3844162, 'ndcg1_10': 0.41546032, 'georisk_10': 0.33642185}, {'ndcg_5': 0.24575643, 'ndcg_10': 0.2818967, 'lndcg_5': 0.2566886, 'lndcg_10': 0.29191783, 'lndcg1_5': 0.3864821, 'lndcg1_10': 0.4217113, 'ndcg1_5': 0.37554994, 'ndcg1_10': 0.41169024, 'georisk_10': 0.33540645}, {'ndcg_5': 0.24415508, 'ndcg_10': 0.27868825, 'lndcg_5': 0.25515908, 'lndcg_10': 0.28877318, 'lndcg1_5': 0.3849526, 'lndcg1_10': 0.41856673, 'ndcg1_5': 0.3739486, 'ndcg1_10': 0.40848184, 'georisk_10': 0.331778}]
+2023-08-09 12:31:30,178 - allrank.utils.ltr_logging - INFO - Ending execution. Test Metrics Evolution:
+[{'ndcg_5': 0.23114306745125995, 'ndcg_10': 0.2589800941301122, 'lndcg_5': 0.24172721460269903, 'lndcg_10': 0.2683791335313192, 'lndcg1_5': 0.37863197650746094, 'lndcg1_10': 0.40528389543608107, 'ndcg1_5': 0.36804782935602187, 'ndcg1_10': 0.3958848560348741}, {'ndcg_5': 0.2788785337494446, 'ndcg_10': 0.3068011418186566, 'lndcg_5': 0.2896430571006853, 'lndcg_10': 0.3162688328701182, 'lndcg1_5': 0.4265478190054472, 'lndcg1_10': 0.45317359477488023, 'ndcg1_5': 0.4157832956542065, 'ndcg1_10': 0.44370590372341845}, {'ndcg_5': 0.3082975883179037, 'ndcg_10': 0.3415604219943455, 'lndcg_5': 0.3231972181466296, 'lndcg_10': 0.35324735662847173, 'lndcg1_5': 0.4601019800513915, 'lndcg1_10': 0.49015211853323365, 'ndcg1_5': 0.44520235022266563, 'ndcg1_10': 0.4784651838991074}]

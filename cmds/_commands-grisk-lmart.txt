@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+
+#!/usr/bin/env bash
+
+python -u pyltr/main.py /home/silvapedro/experimento_loss_risk/BD/web10k/Fold1/ /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold1/ 50 106,111 > /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold1/log.txt
+echo "Done 1"
+python -u pyltr/main.py /home/silvapedro/experimento_loss_risk/BD/web10k/Fold2/ /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold2/ 50 106,111 > /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold2/log.txt
+echo "Done 2"
+python -u pyltr/main.py /home/silvapedro/experimento_loss_risk/BD/web10k/Fold3/ /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold3/ 50 106,111 > /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold3/log.txt
+echo "Done 3"
+
+nohup sh execglamart1.sh > log-execglamart1.log &
+nohup sh execglamart2.sh > log-execglamart2.log &
+
+
+----------
+#!/usr/bin/env bash
+
+python -u pyltr/main.py /home/silvapedro/experimento_loss_risk/BD/web10k/Fold4/ /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold4/ 50 106,111 > /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold4/log.txt
+echo "Done 4"
+python -u pyltr/main.py /home/silvapedro/experimento_loss_risk/BD/web10k/Fold5/ /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold5/ 50 106,111 > /home/silvapedro/experimento_loss_risk/grisklmart/web10k/Fold5/log.txt
+echo "Done 5"
+
+
+
+mkdir grisklmart
+cd grisklmart
+mkdir web10k
+cd web10k
+mkdir Fold1
+mkdir Fold2
+mkdir Fold3
+mkdir Fold4
+mkdir Fold5
